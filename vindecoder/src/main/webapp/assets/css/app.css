@@ -8,6 +8,15 @@ body {
     padding-top: 54px;
 }
 
+.container {
+	min-height: 100%;
+	position: relative;
+}
+
+.content {
+	padding-bottom: 20%;
+}
+
 @media (min-width: 992px) {
     body {
         padding-top: 56px;
@@ -16,4 +25,9 @@ body {
 
 .bg-dark {
 	background-color: #0f375f!important;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
 }

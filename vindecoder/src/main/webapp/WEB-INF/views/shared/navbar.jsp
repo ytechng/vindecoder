@@ -14,10 +14,6 @@
 						<span class="sr-only">(current)</span>
 					</a>
 				</li>
-				<li class="nav-item" id="contact">
-					<a class="nav-link" href="${contextRoot}/contact">Contact</a>
-				</li>
-				
 				<li class="nav-item" id="loginas">
 					<a class="nav-link" href="${contextRoot}/profile">Login as: <i>OPEYEMI AJAYI</i></a>
 				</li>

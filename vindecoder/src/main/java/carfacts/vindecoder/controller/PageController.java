@@ -33,5 +33,32 @@ public class PageController {
 		mv.addObject("title", "My Profile");
 		return mv;
 	}
+	
+	@RequestMapping(value="/editProfile")
+	public ModelAndView editProfile() {
+		
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("userClickEditProfile", true);
+		mv.addObject("title", "Edit Profile");
+		return mv;
+	}
+	
+	@RequestMapping(value="/changePassword")
+	public ModelAndView changePassword() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("userClickChangePassword", true);
+		mv.addObject("title", "Change Password");
+		return mv;
+	}
+	
+	@RequestMapping(value={"/signin"})
+	public ModelAndView signin() {
+		
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("userClickSignIn", true);
+		mv.addObject("title", "Sign In");
+		return mv;
+	}
+	
 
 }

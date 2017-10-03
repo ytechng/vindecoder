@@ -4,46 +4,48 @@
 
 		<div class="col-lg-3">
 			<!-- Menus -->
-			<%@ include file="./shared/categories.jsp"%>
+			<%@ include file="./shared/sidebar.jsp"%>
 
 		</div>
 		<!-- /.col-lg-3 -->
 
 		<div class="col-lg-9">
+			<div class="content">
+				<div id="carouselExampleIndicators" class="carousel slide my-4" 
+					data-ride="carousel"></div>
 
-			<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-			</div>
-
-			<div class="row">
-				<!-- Search Panel -->
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-header deep-orange lighten-1 white-text">
-							VIN DECODER</div>
-						<div class="card-body">
-							<h4 class="card-title">Enter the VIN to the decode in the below textbox</h4>
-							<p class="card-text">
+				<div class="row">
+					<!-- Search Panel -->
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header deep-orange lighten-1 white-text">
+								VIN DECODER</div>
+							<div class="card-body">
+								<h4 class="card-title">Enter the VIN to the decode in the below textbox</h4>
+								<p class="card-text">
+									<div class="col-md-6 mx-auto">
+										<input type="text" class="form-control" />
+									</div>
+								</p>
 								<div class="col-md-6 mx-auto">
-									<input type="text" class="form-control" />
+									<button class="form-control btn btn-info">DECODE VIN</button>
 								</div>
-							</p>
-							<div class="col-md-6 mx-auto">
-								<button class="form-control btn btn-info">DECODE VIN</button>
 							</div>
-						</div>
-					</div><hr>
-				</div>
-				<!--/.Search Panel-->
-				
-				<!-- Search Panel -->
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-header primary lighten-1 white-text">
-							<h4><center>VIN DECODER CHECK RESULT</center></h4>
-						</div>
-						<div class="card-body">
-							<h6 class="card-title">Enter the VIN to the decode in the below textbox</h6>
-							<p class="card-text">
+						</div><hr>
+					</div>
+					<!--/.Search Panel-->
+					
+					<!-- Search Panel -->
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header primary lighten-1 white-text">
+								<h4><center>VIN DECODER CHECK RESULT</center></h4>
+							</div>
+							<div class="card-body">
+								<h6 class="card-title">Enter the VIN to the decode in the
+									below textbox</h6>
+								
+								
 								<table class="table table-striped">
 									<tr>
 										<th>VIN</th>
@@ -100,25 +102,24 @@
 									<tr>
 										<th>Max Payload</th>
 										<td>650</td>
-									</tr>									
+									</tr>
 									<tr>
 										<th>Co2 Emission Mixed Driving</th>
-										<td>Nil</td>
+										<td>-</td>
 									</tr>
 									<tr>
 										<th>Fuel Consumption Mixed Driving</th>
-										<td>Nil</td>
+										<td>-</td>
 									</tr>
-									
+	
 								</table>
-							</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<!--/.Search Panel-->
-			</div><br><br>
-			<!-- /.row -->
-
+					<!--/.Search Panel-->
+				</div><br><br>
+				<!-- /.row -->
+			</div>
 		</div>
 		<!-- /.col-lg-9 -->
 

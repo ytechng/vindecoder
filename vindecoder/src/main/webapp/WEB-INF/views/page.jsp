@@ -50,6 +50,21 @@
     	<%@ include file="profile.jsp" %>
     </c:if>
     
+    <!-- Load edit profile content file -->
+    <c:if test="${userClickEditProfile == true}">
+    	<%@ include file="editProfile.jsp" %>
+    </c:if>
+    
+    <!-- Load change password content file -->
+    <c:if test="${userClickChangePassword == true}">
+    	<%@ include file="changePassword.jsp" %>
+    </c:if>
+    
+    <!-- Load Sign in content file -->
+    <c:if test="${userClickSignIn == true}">
+    	<%@ include file="signin.jsp" %>
+    </c:if>
+    
     <!-- /.container -->
 
     <!-- Footer -->

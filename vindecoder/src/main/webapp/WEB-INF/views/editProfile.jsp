@@ -4,7 +4,7 @@
 
 		<div class="col-lg-3">
 			<!-- Menus -->
-			<%@ include file="./shared/categories.jsp"%>
+			<%@ include file="./shared/sidebar.jsp"%>
 
 		</div>
 		<!-- /.col-lg-3 -->
