@@ -31,7 +31,7 @@
 											this computer</span>
 									</label>
 								</div>
-								<button type="button" class="btn btn-info btn-lg float-right">Login</button>
+								<a href="${contextRoot}/home" class="btn btn-info btn-lg float-right">Login</a>
 							</form>
 						</div>
 						<!--/card-block-->

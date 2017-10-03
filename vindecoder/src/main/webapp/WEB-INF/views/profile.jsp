@@ -9,6 +9,16 @@
 		<!-- /.col-lg-3 -->
 		<div class="col-lg-9">
 			<div class="content">
+				<!-- breadcrumb component -->
+				<div class="row">
+					<div class="col-md-12">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="${contextRoot}/home">Home</a></li>
+							<li class="breadcrumb-item active">My Profile</li>
+						</ol>
+					</div>
+				</div>
+				<!-- /breadcrumb component -->
 				<div id="carouselExampleIndicators" class="carousel slide my-4"
 					data-ride="carousel"></div>
 
