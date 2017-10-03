@@ -14,6 +14,7 @@
 					<div class="col-md-12">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="${contextRoot}/home">Home</a></li>
+							<li class="breadcrumb-item active">Profile</li>
 							<li class="breadcrumb-item active">My Profile</li>
 						</ol>
 					</div>

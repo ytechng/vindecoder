@@ -14,21 +14,20 @@
 						<div class="card-body">
 							<form class="form" role="form" autocomplete="off" id="formLogin">
 								<div class="form-group">
-									<label for="uname1">Username</label> <input type="text"
-										class="form-control form-control-lg rounded-0" name="uname1"
-										id="uname1" required="">
+									<label for="uname1">Username</label> 
+									<input type="email" class="form-control form-control-lg rounded-0" name="email"
+										id="email" required="">
 								</div>
 								<div class="form-group">
-									<label>Password</label> <input type="password"
-										class="form-control form-control-lg rounded-0" id="pwd1"
-										required="" autocomplete="new-password">
+									<label>Password</label> 
+									<input type="password" class="form-control form-control-lg rounded-0" name="password" 
+										id="password" required="">
 								</div>
 								<div>
-									<label class="custom-control custom-checkbox"> <input
-										type="checkbox" class="custom-control-input"> <span
-										class="custom-control-indicator"></span> <span
-										class="custom-control-description small">Remember me on
-											this computer</span>
+									<label class="custom-control custom-checkbox"> 
+										<input type="checkbox" class="custom-control-input"> 
+										<span class="custom-control-indicator"></span> 
+										<span class="custom-control-description small">Remember me on this computer</span>
 									</label>
 								</div>
 								<a href="${contextRoot}/home" class="btn btn-info btn-lg float-right">Login</a>
