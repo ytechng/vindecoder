@@ -2,17 +2,25 @@ package carfacts.vindecoder.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PageController {
 	
 	@RequestMapping(value={"/", "/home", "/index"})
-	public ModelAndView index() {
+	public ModelAndView index(@RequestParam(name="vin", required=false) String vin) {
 		
 		ModelAndView mv = new ModelAndView("page");
+		
+		if (vin != null) {
+			mv.addObject("vinResult", "True");
+		}
+		
 		mv.addObject("userClickHome", true);
 		mv.addObject("title", "Vin Decoder");
+		
 		return mv;
 	}
 	
@@ -58,6 +66,15 @@ public class PageController {
 		mv.addObject("userClickSignIn", true);
 		mv.addObject("title", "Sign In");
 		return mv;
+	}
+	
+	
+	@RequestMapping(value="/vinCheck/{vin}", method=RequestMethod.GET)
+	public String checkVin(@RequestParam(name="vin") String vin) {
+		
+		String result = "Good";
+				
+		return "redirect:/home/?vin=" + result;
 	}
 	
 
