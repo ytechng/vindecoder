@@ -4,7 +4,7 @@ CREATE TABLE users (
 	first_name VARCHAR(50),
 	last_name VARCHAR(50),
 	email VARCHAR(100),
-	phone_no VARCHAR(50),
+	phone_no VARCHAR(15),
 	company_name VARCHAR(50),
 	company_address VARCHAR(100),
 	role VARCHAR(100),
@@ -41,7 +41,7 @@ CREATE TABLE vin_decoder (
 	co2_emission_mixed_driving VARCHAR(50),
 	fuel_consumption_mixed_driving VARCHAR(50),
 	created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	enabled BOOLEAN,
+	status BOOLEAN,
 	
 	CONSTRAINT pk_vindecoder_id PRIMARY KEY (id)
 );

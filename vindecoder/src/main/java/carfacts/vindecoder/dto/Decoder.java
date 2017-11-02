@@ -1,9 +1,19 @@
 package carfacts.vindecoder.dto;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Decoder {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
+@XmlAccessorType(XmlAccessType.NONE)
+public class Decoder implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private int id;
 	private String vin;
 	private String make;

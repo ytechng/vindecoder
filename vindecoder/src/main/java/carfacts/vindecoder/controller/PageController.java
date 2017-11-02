@@ -1,10 +1,14 @@
 package carfacts.vindecoder.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+
+import carfacts.vindecoder.dto.Decoder;
 
 @Controller
 public class PageController {
@@ -65,16 +69,41 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("userClickSignIn", true);
 		mv.addObject("title", "Sign In");
+		
 		return mv;
 	}
 	
 	
-	@RequestMapping(value="/vinCheck/{vin}", method=RequestMethod.GET)
-	public String checkVin(@RequestParam(name="vin") String vin) {
+	@RequestMapping(value="/decode/")
+	public ModelAndView dispayVIN(@RequestParam String vin) {
 		
-		String result = "Good";
+		ModelAndView mv = new ModelAndView("page");
+		
+		RestTemplate restTemplate = new RestTemplate();
+		String url = "http://localhost:8080/vindecoder/business/{vin}";
+		
+		Decoder decoder = restTemplate.getForObject(url, Decoder.class, vin);
+		
+		mv.addObject("userClickVinDecode", true);
+		mv.addObject("title", "VIN Decode Result");
+		mv.addObject("decoder", decoder);
+		
+		return mv;
+	}
+	
+	@RequestMapping(value={"/show"})
+	public ModelAndView test(@RequestParam(name="vin", required=true) String vin) {
+		
+		ModelAndView mv = new ModelAndView("page");
+		
+		if (vin != null) {
+			mv.addObject("vinResult", vin);
+		}
 				
-		return "redirect:/home/?vin=" + result;
+		mv.addObject("userClickVinDecode", true);
+		mv.addObject("title", "Vin Decoder");
+		
+		return mv;
 	}
 	
 

@@ -27,30 +27,7 @@
 
 				<div class="row">
 					<!-- Search Panel -->
-					<div class="col-md-12">
-						<div class="card">
-							<form method="GET" id="frmVinCheck" action="${contextRoot}/decode/">
-								<div class="card-header deep-orange lighten-1 white-text">
-									VIN DECODER</div>
-								<div class="card-body">
-									<h4 class="card-title">Enter the VIN to the decode in the below textbox</h4>
-									<p class="card-text">
-										<div class="col-md-6 mx-auto">
-											<input type="text" class="form-control" name="vin" />
-										</div>
-									</p>
-									<div class="col-md-6 mx-auto">
-										<button class="form-control btn btn-info" type="submit">
-											DECODE VIN
-										</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-					<!--/.Search Panel-->
-					
-					<c:if test="${vinResult == null}">
+					<c:if test="${decoder != null}">
 	
 						<div class="col-md-12">
 							<hr>
@@ -61,6 +38,7 @@
 							<div class="card">
 								<div class="card-header primary lighten-1 white-text">
 									<h4><center>VIN DECODER CHECK RESULT</center></h4>
+									<p>${vinResult}</p>
 								</div>
 								<div class="card-body">
 									<h6 class="card-title">Enter the VIN to the decode in the
@@ -70,75 +48,81 @@
 									<table class="table table-striped">
 										<tr>
 											<th>VIN</th>
-											<td>WP1ZZZ9PZ3LA80863</td>
+											<td>${decoder.vin}</td>
 										</tr>
 										<tr>
 											<th>Make</th>
-											<td>Porsche</td>
+											<td>${decoder.make}</td>
 										</tr>
 										<tr>
 											<th>Model Name</th>
-											<td>Cayenne</td>
+											<td>${decoder.modelName}</td>
 										</tr>
 										<tr>
 											<th>Model Year</th>
-											<td>2003</td>
+											<td>${decoder.modelYear}</td>
 										</tr>
 										<tr>
 											<th>Fuel type</th>
-											<td>Petrol</td>
+											<td>${decoder.fuelType}</td>
 										</tr>
 										<tr>
 											<th>Body Type</th>
-											<td>SUV</td>
+											<td>${decoder.bodyType}</td>
 										</tr>
 										<tr>
 											<th>Drive Wheels</th>
-											<td>All wheel</td>
+											<td>${decoder.driveWheels}</td>
 										</tr>
 										<tr>
 											<th>Engine Power</th>
-											<td>331</td>
+											<td>${decoder.enginePower}</td>
 										</tr>
 										<tr>
 											<th>Horse Power</th>
-											<td>450</td>
+											<td>${decoder.horsePower}</td>
 										</tr>
 										<tr>
 											<th>Curb Weight</th>
-											<td>2430</td>
+											<td>${decoder.curbWeight}</td>
 										</tr>
 										<tr>
 											<th>Gross Vehicle Weight</th>
-											<td>2013</td>
+											<td>${decoder.grossVehicleWeight}</td>
 										</tr>
 										<tr>
 											<th>Plant</th>
-											<td>Leipzig, Germany</td>
+											<td>${decoder.plant}</td>
 										</tr>
 										<tr>
 											<th>Gearbox</th>
-											<td>Automatic</td>
+											<td>${decoder.gearBox}</td>
 										</tr>
 										<tr>
 											<th>Max Payload</th>
-											<td>650</td>
+											<td>${decoder.maxPayload}</td>
 										</tr>
 										<tr>
 											<th>Co2 Emission Mixed Driving</th>
-											<td>-</td>
+											<td>${decoder.co2EmissionMixedDriving}</td>
 										</tr>
 										<tr>
 											<th>Fuel Consumption Mixed Driving</th>
-											<td>-</td>
+											<td>${decoder.fuelConsumptionMixedDriving}</td>
 										</tr>
 		
 									</table>
+									
 								</div>
 							</div>
 						</div>
 						<!--/.Result Panel-->
-					</c:if>
+					</c:if>	
+					
+					<div class="col-md-3 mx-auto">
+						<a href="${contextRoot}/home" class="btn btn-primay">Decode another VIN</a>
+					</div>
+					
 				</div><br><br>
 				<!-- /.row -->
 			</div>

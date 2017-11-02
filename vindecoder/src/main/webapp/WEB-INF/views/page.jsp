@@ -65,6 +65,11 @@
     	<%@ include file="signin.jsp" %>
     </c:if>
     
+    <!-- Load vin decode in content file -->
+    <c:if test="${userClickVinDecode == true}">
+    	<%@ include file="vindecode.jsp" %>
+    </c:if>
+    
     <!-- /.container -->
 
     <!-- Footer -->
