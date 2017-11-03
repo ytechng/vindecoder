@@ -3,10 +3,18 @@ package carfacts.vindecoder.dto;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
-@XmlAccessorType(XmlAccessType.NONE)
+@Entity
+@Table(name = "vin_decoder")
+//@XmlAccessorType(XmlAccessType.NONE)
 public class Decoder implements Serializable{
 
 	/**
@@ -14,25 +22,57 @@ public class Decoder implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String vin;
 	private String make;
+	
+	@Column(name = "model_name")
 	private String modelName;
+	
+	@Column(name = "model_year")
 	private String modelYear;
+	
+	@Column(name = "fuel_type")
 	private String fuelType;
+	
+	@Column(name = "body_type")
 	private String bodyType;
+	
+	@Column(name = "drive_wheels")
 	private String driveWheels;
+	
+	@Column(name = "engine_power")
 	private String enginePower;
+	
+	@Column(name = "horse_power")
 	private String horsePower;
+	
+	@Column(name = "curb_weight")
 	private String curbWeight;
+	
+	@Column(name = "gross_vehicle_weight")
 	private String grossVehicleWeight;
+	
 	private String plant;
+	
+	@Column(name = "gear_box")
 	private String gearBox;
+	
+	@Column(name = "max_payloa")
 	private String maxPayload;
-	// col = co2_emission_mixed_driving
+	
+	@Column(name = "co2_emission_mixed_driving")
 	private String co2EmissionMixedDriving;
+	
+	@Column(name = "fuel_consumption_mixed_driving")
 	private String fuelConsumptionMixedDriving;
+	
+	@Column(name = "created_date")
 	private Date createdAt;
+	
 	private boolean status = true;
 
 	public int getId() {

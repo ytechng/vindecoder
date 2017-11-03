@@ -1,22 +1,55 @@
 package carfacts.vindecoder.dto;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.print.attribute.standard.DateTimeAtCreation;
 
-public class User {
+@Entity
+@Table(name = "users")
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/*
 	 * Private properties
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name = "first_name")
 	private String firstName;
+	
+	@Column(name = "last_name")
 	private String lastName;
+	
 	private String email;
+	
+	@Column(name = "phone_no")
 	private String phoneNo;
+	
+	@Column(name = "company_name")
 	private String companyName;
+	
+	@Column(name = "company_address")
 	private String companyAddress;
+	
 	private String role = "business";
+	
 	private String password;
+	
+	@Column(name = "reg_date")
 	private DateTimeAtCreation regDate;
+	
 	private boolean enabled = true;
 
 	public int getId() {

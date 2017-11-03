@@ -1,9 +1,7 @@
 package carfacts.vindecoder.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
@@ -80,9 +78,16 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		
 		RestTemplate restTemplate = new RestTemplate();
-		String url = "http://localhost:8080/vindecoder/business/{vin}";
+		String url = "http://localhost:8080/vindecoder/localApi/{vin}";		
 		
 		Decoder decoder = restTemplate.getForObject(url, Decoder.class, vin);
+		
+		if (decoder == null) {
+			
+			url = "http://localhost:8080/vindecoder/carfaxApi/{vin}";
+			decoder = restTemplate.getForObject(url, Decoder.class, vin);
+			
+		}
 		
 		mv.addObject("userClickVinDecode", true);
 		mv.addObject("title", "VIN Decode Result");
