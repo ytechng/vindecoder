@@ -8,19 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import carfacts.vindecoder.dao.DecoderDAO;
-import carfacts.vindecoder.dto.Decoder;
+import carfacts.vindecoder.dao.ApiDAO;
+import carfacts.vindecoder.dto.Api;
 
-@Repository("decoderDAO")
+@Repository("apiDAO")
 @Transactional
-public class DecoderDAOImpl implements DecoderDAO {
+public class ApiDAOImpl implements ApiDAO {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
 		
 	@Override
-	public List<Decoder> list() {
-		String selectQuery = "SELECT Decoder WHERE status = :status";
+	public List<Api> list() {
+		String selectQuery = "SELECT Api WHERE status = :status";
 		
 		try {
 			Query query = sessionFactory.getCurrentSession().createQuery(selectQuery);
@@ -35,9 +35,9 @@ public class DecoderDAOImpl implements DecoderDAO {
 	}
 
 	@Override
-	public Decoder get(String vin) {
+	public Api get(String vin) {
 		try {
-			return sessionFactory.getCurrentSession().get(Decoder.class, String.valueOf(vin));
+			return sessionFactory.getCurrentSession().get(Api.class, String.valueOf(vin));
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -46,9 +46,9 @@ public class DecoderDAOImpl implements DecoderDAO {
 	}
 
 	@Override
-	public boolean add(Decoder decoder) {
+	public boolean add(Api api) {
 		try {
-			sessionFactory.getCurrentSession().persist(decoder);
+			sessionFactory.getCurrentSession().persist(api);
 			return true;
 			
 		} catch (Exception e) {
@@ -58,9 +58,9 @@ public class DecoderDAOImpl implements DecoderDAO {
 	}
 
 	@Override
-	public boolean update(Decoder decoder) {
+	public boolean update(Api api) {
 		try {
-			sessionFactory.getCurrentSession().update(decoder);
+			sessionFactory.getCurrentSession().update(api);
 			return true;
 			
 		} catch (Exception e) {
@@ -70,12 +70,12 @@ public class DecoderDAOImpl implements DecoderDAO {
 	}
 
 	@Override
-	public boolean delete(Decoder decoder) {
+	public boolean delete(Api api) {
 		
-		decoder.setStatus(false);
+		api.setStatus(false);
 		
 		try {
-			sessionFactory.getCurrentSession().update(decoder);
+			sessionFactory.getCurrentSession().update(api);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

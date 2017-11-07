@@ -13,9 +13,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
 @Entity
-@Table(name = "vin_decoded")
+@Table(name = "vin_decoder_api")
 @XmlAccessorType(XmlAccessType.NONE)
-public class Decoder implements Serializable{
+public class Api implements Serializable{
 
 	/**
 	 * 

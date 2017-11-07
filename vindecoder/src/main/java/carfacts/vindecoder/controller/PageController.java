@@ -11,6 +11,7 @@ import carfacts.vindecoder.dto.Decoder;
 @Controller
 public class PageController {
 	
+	
 	@RequestMapping(value={"/", "/home", "/index"})
 	public ModelAndView index(@RequestParam(name="vin", required=false) String vin) {
 		

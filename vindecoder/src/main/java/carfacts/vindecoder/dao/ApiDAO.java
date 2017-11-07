@@ -2,41 +2,41 @@ package carfacts.vindecoder.dao;
 
 import java.util.List;
 
-import carfacts.vindecoder.dto.Decoder;
+import carfacts.vindecoder.dto.Api;
 
-public interface DecoderDAO {
+public interface ApiDAO {
 
 	/**
 	 * Get all VIN decoder details
 	 * @return
 	 */
-	List<Decoder> list();
+	List<Api> list();
 	
 	/**
 	 * Get a single VIN decoder
 	 * @param vin
 	 * @return
 	 */
-	Decoder get(String vin);
+	Api get(String vin);
 	
 	/**
 	 * Add a new VIN decoded
 	 * @param decoder
 	 * @return
 	 */
-	boolean add(Decoder decoder);
+	boolean add(Api decoder);
 	
 	/**
 	 * Update an existing VIN decoded
 	 * @param decoder
 	 * @return
 	 */
-	boolean update(Decoder decoder);
+	boolean update(Api decoder);
 	
 	/**
 	 * Delete an existing VIN decoded
 	 * @param decoder
 	 * @return
 	 */
-	boolean delete(Decoder decoder);
+	boolean delete(Api api);
 }
