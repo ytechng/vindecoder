@@ -5,13 +5,13 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import carfacts.vindecoder.dao.ApiDAO;
 import carfacts.vindecoder.dto.Api;
 
-@Repository("apiDAO")
+@Service("apiDAO")
 @Transactional
 public class ApiDAOImpl implements ApiDAO {
 	
@@ -35,9 +35,13 @@ public class ApiDAOImpl implements ApiDAO {
 	}
 
 	@Override
-	public Api get(String vin) {
+	public Api get(int vin) {
+		String selectQuery = "SELECT Api WHERE vin = :vin";
 		try {
-			return sessionFactory.getCurrentSession().get(Api.class, String.valueOf(vin));
+			return sessionFactory.getCurrentSession().get(Api.class, Integer.valueOf(vin));
+//					.createQuery(selectQuery, Api.class)
+//						.setParameter("vin", vin)
+//							.getSingleResult();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

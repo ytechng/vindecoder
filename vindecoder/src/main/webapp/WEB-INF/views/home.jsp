@@ -50,7 +50,7 @@
 					</div>
 					<!--/.Search Panel-->
 					
-					<c:if test="${vinResult == null}">
+					<c:if test="${vinResult != null}">
 	
 						<div class="col-md-12">
 							<hr>
@@ -138,6 +138,10 @@
 							</div>
 						</div>
 						<!--/.Result Panel-->
+					</c:if>
+					<c:if test="${vinResult == null}">
+						<div style="padding-bottom: 50%;">
+						</div>
 					</c:if>
 				</div><br><br>
 				<!-- /.row -->

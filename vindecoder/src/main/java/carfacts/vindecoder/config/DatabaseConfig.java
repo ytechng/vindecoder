@@ -14,7 +14,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages={"carfacts.vindecoder.dao"})
+@ComponentScan(basePackages={"carfacts.vindecoder.dto"})
 @EnableTransactionManagement
 public class DatabaseConfig {
 	 

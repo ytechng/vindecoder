@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import carfacts.vindecoder.dao.DecoderDAO;
 import carfacts.vindecoder.dto.Decoder;
 
@@ -35,9 +36,14 @@ public class DecoderDAOImpl implements DecoderDAO {
 	}
 
 	@Override
-	public Decoder get(String vin) {
+	public Decoder get(int vin) {
+		String selectQuery = "SELECT Decoder WHERE vin = :vin and status = :status";
 		try {
-			return sessionFactory.getCurrentSession().get(Decoder.class, String.valueOf(vin));
+			return sessionFactory.getCurrentSession().get(Decoder.class, Integer.valueOf(vin));
+//					.createQuery(selectQuery, Decoder.class)
+//						.setParameter("vin", vin)
+//						.setParameter("status", true)
+//							.getSingleResult();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

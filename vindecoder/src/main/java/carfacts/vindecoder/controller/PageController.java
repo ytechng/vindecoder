@@ -1,21 +1,32 @@
 package carfacts.vindecoder.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import carfacts.vindecoder.dao.DecoderDAO;
 import carfacts.vindecoder.dto.Decoder;
 
 @Controller
 public class PageController {
 	
+	private static Logger logger = LoggerFactory.getLogger(PageController.class);
 	
+	@Autowired
+	private DecoderDAO decoderDAO;
+		
 	@RequestMapping(value={"/", "/home", "/index"})
 	public ModelAndView index(@RequestParam(name="vin", required=false) String vin) {
 		
 		ModelAndView mv = new ModelAndView("page");
+		
+		logger.info("Inside PageController index method - INFO");
+		logger.debug("Inseide PageController index method - DEBUG");
 		
 		if (vin != null) {
 			mv.addObject("vinResult", "True");
@@ -74,25 +85,52 @@ public class PageController {
 	
 	
 	@RequestMapping(value="/decode/")
-	public ModelAndView dispayVIN(@RequestParam String vin) {
+	public ModelAndView dispayVIN(@RequestParam int vin) {
 		
 		ModelAndView mv = new ModelAndView("page");
+		
+		logger.info("Inside PageController index method - INFO");
+		logger.debug("Inseide PageController index method - DEBUG");
 		
 		RestTemplate restTemplate = new RestTemplate();
 		String url = "http://localhost:8080/vindecoder/localApi/{vin}";		
 		
-		Decoder decoder = restTemplate.getForObject(url, Decoder.class, vin);
+		Decoder decoderApi = restTemplate.getForObject(url, Decoder.class, vin);
 		
-		if (decoder == null) {
+		if (decoderApi == null) {
 			
 			url = "http://localhost:8080/vindecoder/carfaxApi/{vin}";
-			decoder = restTemplate.getForObject(url, Decoder.class, vin);
+			decoderApi = restTemplate.getForObject(url, Decoder.class, vin);
+			
+			if (decoderApi != null) {
+				Decoder decoder = new Decoder();
+				decoder.setVin(decoderApi.getVin());
+				decoder.setMake(decoderApi.getMake());
+				decoder.setModelName(decoderApi.getModelName());
+				decoder.setModelYear(decoderApi.getModelYear());
+				decoder.setFuelType(decoderApi.getFuelType());
+				decoder.setBodyType(decoderApi.getBodyType());
+				decoder.setDriveWheels(decoderApi.getDriveWheels());
+				decoder.setEnginePower(decoderApi.getEnginePower());
+				decoder.setHorsePower(decoderApi.getHorsePower());
+				decoder.setCurbWeight(decoderApi.getCurbWeight());
+				decoder.setGrossVehicleWeight(decoderApi.getGrossVehicleWeight());
+				decoder.setPlant(decoderApi.getPlant());
+				decoder.setGearBox(decoderApi.getGearBox());
+				decoder.setMaxPayload(decoderApi.getMaxPayload());
+				decoder.setCo2EmissionMixedDriving(decoderApi.getCo2EmissionMixedDriving());
+				decoder.setFuelConsumptionMixedDriving(decoderApi.getFuelConsumptionMixedDriving());
+				
+				// add record to the database
+				decoderDAO.add(decoder);
+				
+			}
 			
 		}
 		
 		mv.addObject("userClickVinDecode", true);
 		mv.addObject("title", "VIN Decode Result");
-		mv.addObject("decoder", decoder);
+		mv.addObject("decoder", decoderApi);
 		
 		return mv;
 	}

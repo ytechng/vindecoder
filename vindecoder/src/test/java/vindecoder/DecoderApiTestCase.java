@@ -32,7 +32,7 @@ public class DecoderApiTestCase {
 	public void testAddapiAPI() {
 		
 		api = new Api();	
-		api.setVin("WP1ABC9PZ3LA80123");
+		api.setVin("WP1ABC9PZ3LA80199");
 		api.setMake("Honda");
 		api.setModelName("Corolla");
 		api.setModelYear("2007");
@@ -52,7 +52,7 @@ public class DecoderApiTestCase {
 		assertEquals("Error adding new vin apid", true, apiDAO.add(api));
 		
 		api = new Api();	
-		api.setVin("WP1ABB2DSALA80123");
+		api.setVin("WQ1ABB2DSALA80123");
 		api.setMake("Toyata");
 		api.setModelName("Venza");
 		api.setModelYear("2002");
@@ -69,7 +69,7 @@ public class DecoderApiTestCase {
 		api.setCo2EmissionMixedDriving("N/A");
 		api.setFuelConsumptionMixedDriving("N/A");
 		
-		assertEquals("Error adding new vin apid", true, apiDAO.add(api));
+		assertEquals("Error adding new vin ", true, apiDAO.add(api));
 		
 	}
 	
