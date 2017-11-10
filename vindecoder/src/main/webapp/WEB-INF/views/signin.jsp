@@ -30,7 +30,10 @@
 										<span class="custom-control-description small">Remember me on this computer</span>
 									</label>
 								</div>
-								<a href="${contextRoot}/home" class="btn btn-info btn-lg float-right">Login</a>
+								<a href="${contextRoot}/home" class="btn btn-info btn-lg float-left">Login</a>
+								<a href="${contextRoot}/home" class="btn btn-link btn-lg float-right">
+									I want to Register?
+								</a>
 							</form>
 						</div>
 						<!--/card-block-->

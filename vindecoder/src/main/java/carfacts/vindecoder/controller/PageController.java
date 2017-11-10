@@ -89,8 +89,8 @@ public class PageController {
 		
 		ModelAndView mv = new ModelAndView("page");
 		
-		logger.info("Inside PageController index method - INFO");
-		logger.debug("Inseide PageController index method - DEBUG");
+		logger.info("Inside PageController displayVin method - INFO");
+		logger.debug("Inseide PageController displayVin method - DEBUG");
 		
 		RestTemplate restTemplate = new RestTemplate();
 		String url = "http://localhost:8080/vindecoder/localApi/{vin}";		

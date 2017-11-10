@@ -33,10 +33,12 @@
 								<div class="card-header deep-orange lighten-1 white-text">
 									VIN DECODER</div>
 								<div class="card-body">
-									<h4 class="card-title">Enter the VIN to the decode in the below textbox</h4>
+									<div class="col-md-6 mx-auto">
+										<h4 class="card-title">Enter VIN in the textbox below</h4>
+									</div>
 									<p class="card-text">
 										<div class="col-md-6 mx-auto">
-											<input type="text" class="form-control" name="vin" />
+											<input type="text" class="form-control" name="vin" placeholder="VIN" />
 										</div>
 									</p>
 									<div class="col-md-6 mx-auto">
