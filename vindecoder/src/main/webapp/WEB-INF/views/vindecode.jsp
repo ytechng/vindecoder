@@ -119,8 +119,26 @@
 						<!--/.Result Panel-->
 					</c:if>	
 					
+					<c:if test="${errorMsg != null}">
+												
+						<!-- Result Panel -->
+						<div class="col-md-12">							
+							<h3><div class="alert alert-danger alert-dismissible">
+									<button type="button" class="close" data-dismiss="alert">&times;</button>
+									${errorMsg}
+								</div>
+							</h3>
+						</div>
+						<!--/.Result Panel-->
+					</c:if>
+					
+					<c:if test="${vinResult == null}">
+						<div style="padding-bottom: 40%;">
+						</div>
+					</c:if>
+					
 					<div class="col-md-3 mx-auto">
-						<a href="${contextRoot}/home" class="btn btn-primay">Decode another VIN</a>
+						<a href="${contextRoot}/home" class="btn btn-primary">Check another VIN</a>
 					</div>
 					
 				</div><br><br>

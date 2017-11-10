@@ -128,6 +128,12 @@ public class PageController {
 			
 		}
 		
+		// check if record is found and redirect to show page else redirect back to home page
+		if (decoderApi == null) {
+			mv.addObject("errorMsg", 
+					"There was no record found matching the VIN (" + vin + ")");
+		}
+		
 		mv.addObject("userClickVinDecode", true);
 		mv.addObject("title", "VIN Decode Result");
 		mv.addObject("decoder", decoderApi);

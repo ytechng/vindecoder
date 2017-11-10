@@ -23,4 +23,33 @@ $(function() {
 		
 	}
 	
+	
+	// vin search textfield validation
+	var $frmVinCheck = $('#frmVinCheck');
+	
+	if ($frmVinCheck.length) {
+		
+		$frmVinCheck.validate({
+			rules: {
+				vin: {
+					required: true,
+				}
+			},
+			
+			messages: {
+				vin: {
+					required: 'Please enter the VIN to decode!'
+				}
+			},
+			
+			errorElement: 'em',
+			errorPlacement: function(error, element) {
+				// add the class of help-block
+				error.addClass('help-block');
+				
+				error.insertAfter(element);
+			}
+		});
+	} // end vin search validations
+	
 });

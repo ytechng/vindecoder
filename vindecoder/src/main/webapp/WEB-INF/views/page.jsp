@@ -70,6 +70,11 @@
     	<%@ include file="vindecode.jsp" %>
     </c:if>
     
+    <!-- Load error file -->
+    <c:if test="${userClickException == true}">
+    	<%@ include file="error.jsp" %>
+    </c:if>
+    
     <!-- /.container -->
 
     <!-- Footer -->
