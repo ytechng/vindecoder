@@ -11,6 +11,7 @@
 
 		<div class="col-lg-9">
 			<div class="content">
+			<br>
 				<!-- breadcrumb component -->
 				<div class="row">
 					<div class="col-md-12">
@@ -31,7 +32,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header primary lighten-1 white-text">
-								<h4>PROFILE DETAILS</h4>
+								<h4><span class="fa fa-edit"></span> PROFILE DETAILS</h4>
 							</div>
 							<div class="card-body">
 								
@@ -60,9 +61,9 @@
 	
 								</table>
 								
-								<div class="col-md-4 mx-auto">
-									<button class="form-control btn btn-danger">
-										Update Profile
+								<div class="col-md-3 mx-auto">
+									<button type="submit" class="form-control btn btn-danger">
+										<span class="fa fa-refresh"></span> Update Profile
 									</button>
 								</div>
 							</div>

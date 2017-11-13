@@ -10,7 +10,7 @@
 		<!-- /.col-lg-3 -->
 
 		<div class="col-lg-9">
-			<div class="content">
+			<div class="content"><br>
 				<!-- breadcrumb component -->
 				<div class="row">
 					<div class="col-md-12">
@@ -43,7 +43,7 @@
 									</p>
 									<div class="col-md-6 mx-auto">
 										<button class="form-control btn btn-info" type="submit">
-											DECODE VIN
+											<span class="fa fa-search"></span> DECODE VIN
 										</button>
 									</div>
 								</div>

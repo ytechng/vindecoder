@@ -33,6 +33,7 @@ public class DatabaseConfig {
 	private static final String DATABASE_PASSWORD = "ytech-1234";
 	
 	// dataSource bean will be available
+	// dataSource will be used inside spring-security.xml file
 	@Bean("dataSource")
 	public DataSource getDataSource() {
 		

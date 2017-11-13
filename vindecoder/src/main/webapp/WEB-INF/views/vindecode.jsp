@@ -11,6 +11,7 @@
 
 		<div class="col-lg-9">
 			<div class="content">
+			<br>
 				<!-- breadcrumb component -->
 				<div class="row">
 					<div class="col-md-12">
@@ -28,22 +29,15 @@
 				<div class="row">
 					<!-- Search Panel -->
 					<c:if test="${decoder != null}">
-	
-						<div class="col-md-12">
-							<hr>
-						</div>
 					
 						<!-- Result Panel -->
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header primary lighten-1 white-text">
-									<h4><center>VIN DECODER CHECK RESULT</center></h4>
+									<h4><center><span class="fa fa-book"></span> VIN DECODER RESULT</center></h4>
 									<p>${vinResult}</p>
 								</div>
-								<div class="card-body">
-									<h6 class="card-title">Enter the VIN to the decode in the
-										below textbox</h6>
-									
+								<div class="card-body">								
 									
 									<table class="table table-striped">
 										<tr>

@@ -17,8 +17,8 @@ CREATE TABLE users (
 
 -----------	Insert Into Users Table ------------
 
-INSERT INTO users (first_name, last_name, email, phone_no, company_name, company_address, role, password, reg_date, enabled) 
-VALUES ('test', 'user', 'user@gmail.com', '08020908829', 'Whytech Automobile Company', '9 Alarape Street, Langbasa Ajga', 'business', 'test1234', '2017-01-07', true);
+INSERT INTO users (first_name, last_name, email, phone_no, company_name, company_address, role, password, enabled) 
+VALUES ('test', 'user', 'user@gmail.com', '08020908829', 'Whytech Automobile Company', '9 Alarape Street, Langbasa Ajga', 'business', 'test1234', true);
 
 
 -----------	Create VinDecoders Table ------------

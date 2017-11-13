@@ -9,6 +9,7 @@
 		<!-- /.col-lg-3 -->
 		<div class="col-lg-9">
 			<div class="content">
+			<br>
 				<!-- breadcrumb component -->
 				<div class="row">
 					<div class="col-md-12">
@@ -28,7 +29,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header primary lighten-1 white-text">
-								<h4>PROFILE DETAILS</h4>
+								<h4><span class="fa fa-user"></span> PROFILE DETAILS</h4>
 							</div>
 							<div class="card-body">
 	
@@ -60,9 +61,10 @@
 	
 								</table>
 	
-								<div class="col-md-4 mx-auto">
-									<a href="${contextRoot}/editProfile"
-										class="form-control btn btn-info">Edit Profile</a>
+								<div class="col-md-3 mx-auto">
+									<a href="${contextRoot}/editProfile" class="form-control btn btn-info">
+										<span class="fa fa-edit"></span> Edit Profile
+									</a>
 								</div>
 							</div>
 							</div>

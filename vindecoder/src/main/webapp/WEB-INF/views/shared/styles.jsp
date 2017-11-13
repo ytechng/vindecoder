@@ -3,3 +3,6 @@
 
 <!-- Custom styles for this template -->
 <link href="${css}/app.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="${fa}/css/font-awesome.min.css" rel="stylesheet">

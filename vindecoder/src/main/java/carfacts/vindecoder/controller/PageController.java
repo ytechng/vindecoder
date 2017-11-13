@@ -71,18 +71,7 @@ public class PageController {
 		mv.addObject("userClickChangePassword", true);
 		mv.addObject("title", "Change Password");
 		return mv;
-	}
-	
-	@RequestMapping(value={"/signin"})
-	public ModelAndView signin() {
-		
-		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("userClickSignIn", true);
-		mv.addObject("title", "Sign In");
-		
-		return mv;
-	}
-	
+	}	
 	
 	@RequestMapping(value="/decode/")
 	public ModelAndView dispayVIN(@RequestParam int vin) {
@@ -152,6 +141,22 @@ public class PageController {
 				
 		mv.addObject("userClickVinDecode", true);
 		mv.addObject("title", "Vin Decoder");
+		
+		return mv;
+	}
+	
+	
+	// Login
+	@RequestMapping(value={"/login"})
+	public ModelAndView login(@RequestParam(name="error", required = false) String error) {
+		
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("userClickSignIn", true);
+		mv.addObject("title", "Sign In");
+		
+		if (error != null) {
+			mv.addObject("errorMsg", "Invalid username and/or password!");
+		}
 		
 		return mv;
 	}

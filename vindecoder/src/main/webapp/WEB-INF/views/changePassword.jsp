@@ -11,6 +11,7 @@
 
 		<div class="col-lg-9">
 			<div class="content">
+			<br>
 				<!-- breadcrumb component -->
 				<div class="row">
 					<div class="col-md-12">
@@ -31,31 +32,32 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header primary lighten-1 white-text">
-								<h4>CHANGE PASSWORD</h4>
+								<h4><span class="fa fa-key"></span> CHANGE PASSWORD</h4>
 							</div>
 							<div class="card-body">
 
 								<table class="table">
 									<tr>
 										<th>Current Password:</th>
-										<td><input class="form-control" type="text"
+										<td><input class="form-control" type="password"
 											name="currentPassword" /></td>
 									</tr>
 									<tr>
 										<th>New Password:</th>
-										<td><input class="form-control" type="text"
+										<td><input class="form-control" type="password"
 											name="password" /></td>
 									</tr>
 									<tr>
-										<th>Confirm New Password:</th>
-										<td><input class="form-control" type="text"
+										<th>Confirm Password:</th>
+										<td><input class="form-control" type="password"
 											name="confirmPassword" /></td>
 									</tr>
 								</table>
 
-								<div class="col-md-4 mx-auto">
-									<button class="form-control btn btn-danger">Change
-										Password</button>
+								<div class="col-md-3 mx-auto">
+									<button class="form-control btn btn-danger">
+										<span class="fa fa-refresh"></span> Change Password
+									</button>
 									<br>
 									<br>
 								</div>

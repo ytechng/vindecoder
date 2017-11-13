@@ -1,7 +1,15 @@
 <h1 class="my-4">My Profile</h1>
 <div class="list-group">
-	<a href="${contextRoot}/profile" class="list-group-item" id="myProfile">My Profile</a> 
-	<a href="${contextRoot}/editProfile" class="list-group-item" id="editProfile">Edit Profile</a> 
-	<a href="${contextRoot}/changePassword" class="list-group-item" id="changePassword">Change Password</a> 
-	<a href="${contextRoot}/signin" class="list-group-item">Log Out</a>
+	<a href="${contextRoot}/profile" class="list-group-item" id="myProfile">
+		<span class="fa fa-user"></span> My Profile
+	</a> 
+	<a href="${contextRoot}/editProfile" class="list-group-item" id="editProfile">
+		<span class="fa fa-edit"></span> Edit Profile
+	</a> 
+	<a href="${contextRoot}/changePassword" class="list-group-item" id="changePassword">
+		<span class="fa fa-key"></span>  Change Password
+	</a> 
+	<a href="${contextRoot}/signin" class="list-group-item">
+		<span class="fa fa-sign-out"></span> Log Out
+	</a>
 </div>
