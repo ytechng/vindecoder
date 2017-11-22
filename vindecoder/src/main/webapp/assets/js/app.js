@@ -1,10 +1,10 @@
-$(function() {
+$(function() { 
 	// Selecting active menu
 	switch (menu) {
 	
 	case 'Vin Decoder':
 		$('#home').addClass('active');
-		brea;
+		break;
 	case 'Contact Us':
 		$('#contact').addClass('active');
 		break;
@@ -22,13 +22,14 @@ $(function() {
 		break;
 		
 	}
-	
+
+
 	//-------------------------------------
 	// vin search textfield validation
 	//-------------------------------------
-	var $frmVinCheck = $('#frmVinCheck');
+	var $frmVinCheck = $('#frmVinCheck'); 
 	
-	if ($frmVinCheck.length) {
+	if ($frmVinCheck.length) { 
 		
 		$frmVinCheck.validate({
 			rules: {
@@ -55,11 +56,11 @@ $(function() {
 	
 	
 	//-------------------------------------
-	// Validation for Login Form
+	// Validation code for Login Form
 	//-------------------------------------
 	var $formLogin = $('#formLogin');
 	
-	if ($formLogin.length) {
+	if ($formLogin.length) { 
 		
 		$formLogin.validate({
 			rules : {

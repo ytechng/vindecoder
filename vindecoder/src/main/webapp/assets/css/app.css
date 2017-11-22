@@ -27,6 +27,10 @@ body {
 	background-color: #0f375f!important;
 }
 
+.help-block {
+	color: red;
+}
+
 .footer {
 	position: absolute;
 	bottom: 0;

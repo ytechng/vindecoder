@@ -16,17 +16,19 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 	<http pattern="/resources/**" security="none"/>
 		
 	<http>
-		<!-- accessible to the public -->
-		<intercept-url pattern="/login" access="permitAll" />
+		<!-- only admin access -->
+		<intercept-url pattern="/admin/**" access="hasAuthority('ADMIN')" />
 		
-		<!-- accessible to the admin -->
-		<intercept-url pattern="/admin" access="hasAuthority('ADMIN')" />
+		<!-- only registered user access -->
+		<intercept-url pattern="/business/**" access="hasAuthority('BUSINESS')" />
+		<intercept-url pattern="/home" access="hasAuthority('BUSINESS')" />
+		<intercept-url pattern="/index" access="hasAuthority('BUSINESS')" />
+		<intercept-url pattern="/" access="hasAuthority('BUSINESS')" />
 		
-		<!-- accessible to the business users -->
-		<intercept-url pattern="/**" access="hasAuthority('BUSINESS')" />
+		<!-- public access -->
+		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" username-parameter="email" />
 		<access-denied-handler error-page="/access-denied" />
-		<logout />
 		<csrf disabled="false"/> <!-- csrf is set to false by default -->
 	</http>
 	

@@ -13,6 +13,7 @@ import carfacts.vindecoder.dto.Api;
 import carfacts.vindecoder.dto.Decoder;
 
 @RestController
+@RequestMapping("/json/data")
 public class DecoderAPIController {
 	
 	@Autowired

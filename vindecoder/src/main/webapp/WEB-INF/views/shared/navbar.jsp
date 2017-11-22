@@ -15,7 +15,7 @@
 					</a>
 				</li>
 				<li class="nav-item" id="loginas">
-					<a class="nav-link" href="${contextRoot}/profile">Login as: <i>OPEYEMI AJAYI</i></a>
+					<a class="nav-link" href="${contextRoot}/business/profile">Login as: <i>OPEYEMI AJAYI</i></a>
 				</li>
 			</ul>
 		</div>

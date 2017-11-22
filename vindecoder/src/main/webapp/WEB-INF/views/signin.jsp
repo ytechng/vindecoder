@@ -3,9 +3,7 @@
 		<div class="col-md-12">
 			<h2 class="text-center text-white mb-4">User Login Form</h2>
 			<div class="row">
-				<div class="col-md-6 mx-auto">
-					<span class="anchor" id="formLogin"></span>
-					
+				<div class="col-md-6 mx-auto">					
 					<!-- Display error message if login failed -->
 					<c:if test="${not empty errorMsg}">
 						<div class="alert alert-danger alert-dismissible">
@@ -21,7 +19,9 @@
 						</div>
 						<div class="card-body">
 								
-							<form class="form" role="form" autocomplete="off" id="formLogin" action="${contextRoot}/login" method="POST">
+							<form class="form" role="form" autocomplete="off" id="formLogin" 
+								action="${contextRoot}/login" method="POST">
+								
 								<div class="form-group">
 									<label for="email">Email Address</label> 
 									<input type="text" class="form-control form-control-lg rounded-0" name="email"

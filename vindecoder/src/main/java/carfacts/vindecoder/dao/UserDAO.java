@@ -30,5 +30,5 @@ public interface UserDAO {
 	 * @param id
 	 * @return int
 	 */
-	public User getCategory(int id);
+	public User getUser(int id);
 }

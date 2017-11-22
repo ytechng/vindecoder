@@ -62,7 +62,7 @@
 								</table>
 	
 								<div class="col-md-3 mx-auto">
-									<a href="${contextRoot}/editProfile" class="form-control btn btn-info">
+									<a href="${contextRoot}/business/editProfile" class="form-control btn btn-info">
 										<span class="fa fa-edit"></span> Edit Profile
 									</a>
 								</div>

@@ -29,7 +29,7 @@
 					<!-- Search Panel -->
 					<div class="col-md-12">
 						<div class="card">
-							<form method="GET" id="frmVinCheck" action="${contextRoot}/decode/">
+							<form method="GET" id="frmVinCheck" action="${contextRoot}/business/decode/">
 								<div class="card-header deep-orange lighten-1 white-text">
 									VIN DECODER</div>
 								<div class="card-body">
