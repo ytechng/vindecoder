@@ -12,7 +12,8 @@ import javax.print.attribute.standard.DateTimeAtCreation;
 
 @Entity
 @Table(name = "users")
-public class User implements Serializable {
+public class User implements Serializable { 
+	// To store anything inside flow scope from webflow - implement Seriliazable interface
 
 	/**
 	 * 

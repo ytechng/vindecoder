@@ -42,7 +42,7 @@
 								<button type="submit" class="btn btn-info btn-lg float-right">
 									<span class="fa fa-sign-in"></span> Login
 								</button>
-								<a href="${contextRoot}/home" class="btn btn-link btn-lg float-left">
+								<a href="${contextRoot}/register" class="btn btn-link btn-lg float-left">
 									I want to Register?
 								</a>
 								

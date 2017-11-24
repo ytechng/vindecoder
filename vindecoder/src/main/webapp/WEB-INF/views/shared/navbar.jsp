@@ -15,6 +15,13 @@
 					</a>
 				</li>
 				<li class="nav-item" id="loginas">
+					<a class="nav-link" href="${contextRoot}/login">Login</i></a>
+				</li>
+				
+				<li class="nav-item" id="loginas">
+					<a class="nav-link" href="${contextRoot}/register">Register</i></a>
+				</li>
+				<li class="nav-item" id="loginas">
 					<a class="nav-link" href="${contextRoot}/business/profile">Login as: <i>OPEYEMI AJAYI</i></a>
 				</li>
 			</ul>
