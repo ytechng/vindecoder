@@ -17,13 +17,13 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 		
 	<http>
 		<!-- only admin access -->
-		<intercept-url pattern="/admin/**" access="hasAuthority('ADMIN')" />
+		<intercept-url pattern="/admin/**" access="hasAuthority('admin')" />
 		
 		<!-- only registered user access -->
-		<intercept-url pattern="/business/**" access="hasAuthority('BUSINESS')" />
-		<intercept-url pattern="/home" access="hasAuthority('BUSINESS')" />
-		<intercept-url pattern="/index" access="hasAuthority('BUSINESS')" />
-		<intercept-url pattern="/" access="hasAuthority('BUSINESS')" />
+		<intercept-url pattern="/business/**" access="hasAuthority('business')" />
+		<intercept-url pattern="/home" access="hasAuthority('business')" />
+		<intercept-url pattern="/index" access="hasAuthority('business')" />
+		<intercept-url pattern="/" access="hasAuthority('business')" />
 		
 		<!-- public access -->
 		<intercept-url pattern="/**" access="permitAll" />

@@ -19,7 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Carfacts - ${title}</title>
+    <title>Carfacts</title>
 	
 	<script>
 		window.menu = '${title}';

@@ -1,3 +1,5 @@
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+
 <%@ include file="../shared/flows-header.jsp" %>	
     
   	<div class="container py-5">
@@ -17,30 +19,40 @@
 						<!-- form card login -->
 						<div class="card rounded-2">
 							<div class="card-header">
-								<h3 class="mb-0"><span class="fa fa-user"></span> Signup - Personal Data</h3>
+								<h3 class="mb-0"><span class="fa fa-book"></span> Signup - Company Data</h3>
 							</div>
 							<div class="card-body">
 									
-								<form class="form" role="form" autocomplete="off" id="formLogin" 
-									action="${contextRoot}/login" method="POST">
+								<sf:form class="form" role="form" id="formPersonal" method="POST" modelAttribute="user">
 									
 									<div class="form-group">
-										<label for="email">Email Address</label> 
-										<input type="text" class="form-control form-control-lg rounded-0" name="email"
-											id="email">
+										<label for="companyName">Business Name</label> 
+										<sf:input type="text" class="form-control form-control-lg rounded-0" path="companyName"
+											id="companyName"/>
 									</div>
 									<div class="form-group">
-										<label for="password">Password</label> 
-										<input type="password" class="form-control form-control-lg rounded-0" name="password" 
-											id="password">
+										<label for="companyAddress">Business Address</label> 
+										<sf:textarea type="text" class="form-control form-control-lg rounded-0" path="companyAddress" 
+											id="companyAddress"/>
+									</div>
+									<div class="form-group">
+										<label for="phoneNo">Contact Phone Number</label> 
+										<sf:input type="text" class="form-control form-control-lg rounded-0" path="phoneNo"
+											id="phoneNo"/>
 									</div>
 									
-									<button type="submit" class="btn btn-info btn-lg float-right">
-										Continue <span class="fa fa-arrow-right"></span>
+									<button type="submit" class="btn btn-danger btn-lg float-left" 
+										name="_eventId_personal">
+										<span class="fa fa-arrow-left"></span> Previous - Personal
 									</button>
 									
-									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								</form>
+									<button type="submit" class="btn btn-success btn-lg float-right" 
+										name="_eventId_confirm">
+										Next - Company <span class="fa fa-arrow-right"></span>
+									</button>
+									
+									<!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
+								</sf:form>
 							</div>
 							<!--/card-block-->
 						</div>

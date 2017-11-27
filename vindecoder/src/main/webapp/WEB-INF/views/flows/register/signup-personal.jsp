@@ -18,21 +18,38 @@
 						<!-- form card login -->
 						<div class="card rounded-2">
 							<div class="card-header">
-								<h3 class="mb-0"><span class="fa fa-user"></span> Signup - Personal Data</h3>
+								<h3 class="mb-0"><span class="fa fa-user"></span> User Signup Form</h3>
 							</div>
 							<div class="card-body">
 									
-								<sf:form class="form" role="form" id="formPersonal" method="POST" modelAttribute="user">
+								<sf:form class="form" role="form" id="formRegister" method="POST" modelAttribute="user">
 									
 									<div class="form-group">
 										<label for="email">First Name</label> 
 										<sf:input type="text" class="form-control form-control-lg rounded-0" path="firstName"
 											id="firstName"/>
+										
+										<!-- <sf:errors path="firstName" cssClass="help-block" element="em"/> -->
 									</div>
 									<div class="form-group">
-										<label for="password">Last Name</label> 
-										<input type="password" class="form-control form-control-lg rounded-0" name="lastName" 
-											id="lastName">
+										<label for="lastName">Last Name</label> 
+										<sf:input type="text" class="form-control form-control-lg rounded-0" path="lastName" 
+											id="lastName"/>
+									</div>									
+									<div class="form-group">
+										<label for="companyName">Company Name</label> 
+										<sf:input type="text" class="form-control form-control-lg rounded-0" path="companyName"
+											id="companyName"/>
+									</div>
+									<div class="form-group">
+										<label for="companyAddress">Company Address</label> 
+										<sf:textarea type="text" class="form-control form-control-lg rounded-0" path="companyAddress" 
+											id="companyAddress"/>
+									</div>
+									<div class="form-group">
+										<label for="phoneNo">Contact Phone Number</label> 
+										<sf:input type="text" class="form-control form-control-lg rounded-0" path="phoneNo"
+											id="phoneNo"/>
 									</div>
 									<div class="form-group">
 										<label for="email">Email Address</label> 
@@ -46,8 +63,8 @@
 									</div>
 									
 									<button type="submit" class="btn btn-info btn-lg float-right" 
-										name="">
-										Next - Company <span class="fa fa-arrow-right"></span>
+										name="_eventId_confirm">
+										Continue <span class="fa fa-arrow-right"></span>
 									</button>
 									
 									<!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->

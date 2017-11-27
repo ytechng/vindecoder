@@ -37,7 +37,9 @@
    	<wf:flow-location-pattern value="/**/*-flow.xml"/>
    </wf:flow-registry>
    
-   <wf:flow-builder-services id="flowBuilderServices" view-factory-creator="viewFactoryCreator"/>
+   <!-- added validator attribute for webflow form validations -->
+   <wf:flow-builder-services id="flowBuilderServices" 
+   	view-factory-creator="viewFactoryCreator"/>
    
    <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
    	<property name="flowExecutor" ref="flowExecutor"/>
@@ -51,5 +53,7 @@
    <bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
    	<property name="viewResolvers" ref="viewResolver"/>
    </bean>
+   
+   
       
 </beans>

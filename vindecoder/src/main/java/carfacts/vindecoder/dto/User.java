@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.print.attribute.standard.DateTimeAtCreation;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
@@ -28,24 +29,31 @@ public class User implements Serializable {
 	private int id;
 	
 	@Column(name = "first_name")
+	@NotBlank(message = "Please enter first name!")
 	private String firstName;
 	
 	@Column(name = "last_name")
+	@NotBlank(message = "Please enter last name!")
 	private String lastName;
 	
+	@NotBlank(message = "Please enter email address!")
 	private String email;
 	
 	@Column(name = "phone_no")
+	@NotBlank(message = "Please enter contact number!")
 	private String phoneNo;
 	
 	@Column(name = "company_name")
+	@NotBlank(message = "Please enter company name!")
 	private String companyName;
 	
 	@Column(name = "company_address")
+	@NotBlank(message = "Please enter company address!")
 	private String companyAddress;
 	
 	private String role = "business";
 	
+	@NotBlank(message = "Please enter password!")
 	private String password;
 	
 	@Column(name = "reg_date")
