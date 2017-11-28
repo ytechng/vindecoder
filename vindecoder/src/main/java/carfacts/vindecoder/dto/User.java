@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.print.attribute.standard.DateTimeAtCreation;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -37,6 +38,7 @@ public class User implements Serializable {
 	private String lastName;
 	
 	@NotBlank(message = "Please enter email address!")
+	@Email(message = "Please enter a valid email address!")
 	private String email;
 	
 	@Column(name = "phone_no")

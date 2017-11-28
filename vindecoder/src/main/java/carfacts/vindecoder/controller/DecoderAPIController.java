@@ -25,7 +25,7 @@ public class DecoderAPIController {
 	
 	// VIN from API
 	@RequestMapping(value="/carfaxApi/{vin}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public Api getVinDecode(@PathVariable("vin") int vin) {
+	public Api getVinDecode(@PathVariable("vin") String vin) {
 		
 		// Fetch the VIN record from the database using the supplied vin 
 		Api api = apiDAO.get(vin);
@@ -36,7 +36,7 @@ public class DecoderAPIController {
 	
 	// VIN from local database
 	@RequestMapping(value="/localApi/{vin}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public Decoder getVinDecodeFromDb(@PathVariable("vin") int vin) {
+	public Decoder getVinDecodeFromDb(@PathVariable("vin") String vin) {
 		
 		// Fetch the VIN record from the database using the supplied vin 
 		Decoder decode = decoderDAO.get(vin);

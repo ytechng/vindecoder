@@ -17,7 +17,7 @@ public interface ApiDAO {
 	 * @param vin
 	 * @return
 	 */
-	Api get(int vin);
+	Api get(String vin);
 	
 	/**
 	 * Add a new VIN decoded

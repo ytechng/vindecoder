@@ -161,7 +161,7 @@ $(function() {
 				password : {
 					required: 'Please enter a password',
 					minlength: 'Password must be 6 characters minimum!'
-				}
+				} 
 				
 			},
 			

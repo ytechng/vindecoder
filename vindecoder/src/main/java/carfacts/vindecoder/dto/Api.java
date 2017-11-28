@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "vin_decoder_api")
 @XmlAccessorType(XmlAccessType.NONE)
@@ -71,8 +73,10 @@ public class Api implements Serializable{
 	private String fuelConsumptionMixedDriving;
 	
 	@Column(name = "created_date")
+	@JsonIgnore
 	private Date createdAt;
 	
+	@JsonIgnore
 	private boolean status = true;
 
 	public int getId() {

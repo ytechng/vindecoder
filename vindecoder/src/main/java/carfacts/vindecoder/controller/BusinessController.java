@@ -48,7 +48,7 @@ public class BusinessController {
 	}
 
 	@RequestMapping(value = "/decode/")
-	public ModelAndView dispayVIN(@RequestParam int vin) {
+	public ModelAndView dispayVIN(@RequestParam String vin) {
 
 		ModelAndView mv = new ModelAndView("page");
 
@@ -56,13 +56,13 @@ public class BusinessController {
 		logger.debug("Inseide PageController displayVin method - DEBUG");
 
 		RestTemplate restTemplate = new RestTemplate();
-		String url = "http://localhost:8080/vindecoder/json/data/localApi/{vin}";
+		String url = "http://localhost:8080/vindecoder/json/data/localApi/" + vin;
 
 		Decoder decoderApi = restTemplate.getForObject(url, Decoder.class, vin);
 
 		if (decoderApi == null) {
 
-			url = "http://localhost:8080/vindecoder/json/data/carfaxApi/{vin}";
+			url = "http://localhost:8080/vindecoder/json/data/carfaxApi/" + vin;
 			decoderApi = restTemplate.getForObject(url, Decoder.class, vin);
 
 			if (decoderApi != null) {

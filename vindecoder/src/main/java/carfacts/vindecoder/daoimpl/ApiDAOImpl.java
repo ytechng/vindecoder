@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import carfacts.vindecoder.dao.ApiDAO;
 import carfacts.vindecoder.dto.Api;
+import carfacts.vindecoder.dto.Decoder;
 
 @Service("apiDAO")
 @Transactional
@@ -35,15 +36,18 @@ public class ApiDAOImpl implements ApiDAO {
 	}
 
 	@Override
-	public Api get(int vin) {
-		String selectQuery = "SELECT Api WHERE vin = :vin";
+	public Api get(String vin) {
+		String query = "FROM Api WHERE vin = :vin";
+
 		try {
-			return sessionFactory.getCurrentSession().get(Api.class, Integer.valueOf(vin));
-//					.createQuery(selectQuery, Api.class)
-//						.setParameter("vin", vin)
-//							.getSingleResult();
-			
-		} catch(Exception e) {
+
+			return sessionFactory.getCurrentSession()
+					.createQuery(query, Api.class)
+						.setParameter("vin", vin)
+							.getSingleResult();
+
+		} catch (Exception e) {
+
 			e.printStackTrace();
 			return null;
 		}

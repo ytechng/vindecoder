@@ -17,7 +17,7 @@ public interface DecoderDAO {
 	 * @param vin
 	 * @return
 	 */
-	Decoder get(int vin);
+	Decoder get(String vin);
 	
 	/**
 	 * Add a new VIN decoded
