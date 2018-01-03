@@ -15,9 +15,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "vin_decoder_api")
+@Table(name = "vd_decoder_api")
 @XmlAccessorType(XmlAccessType.NONE)
-public class Api implements Serializable{
+public class Api implements Serializable {
 
 	/**
 	 * 

@@ -2,18 +2,28 @@ package carfacts.vindecoder.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import carfacts.vindecoder.dao.UserDAO;
+import carfacts.vindecoder.dto.User;
+
 @Controller
 public class PageController {
 	
 	private static Logger logger = LoggerFactory.getLogger(PageController.class);
+	
+	@Autowired
+	private UserDAO userDAO;
 		
 	@RequestMapping(value={"/", "/home", "/index"})
-	public ModelAndView index(@RequestParam(name="vin", required=false) String vin) {
+	public ModelAndView index(@RequestParam(name="vin", required=false) String vin, 
+			@RequestParam(name="operation", required=false) String operation) {
 		
 		ModelAndView mv = new ModelAndView("page");
 		
@@ -25,7 +35,21 @@ public class PageController {
 		}
 		
 		mv.addObject("userClickHome", true);
-		mv.addObject("title", "Vin Decoder");
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userDAO.getUserByEmail(auth.getName());
+		
+		if (user.getRole().equals("admin")) {
+			mv.addObject("title", "Business Users");
+		} else {
+			mv.addObject("title", "Decode VIN");
+		}
+		
+		// display message if credit added to user record
+		if (operation != null) {
+			mv.addObject("message", "Credit successfully added to user [" + operation + "] account!");
+		}
+		
 		
 		return mv;
 	}

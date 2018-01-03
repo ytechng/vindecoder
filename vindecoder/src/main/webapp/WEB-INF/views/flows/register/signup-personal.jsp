@@ -22,12 +22,12 @@
 							</div>
 							<div class="card-body">
 									
-								<sf:form class="form" role="form" id="formRegister" method="POST" modelAttribute="user">
+								<sf:form class="form" role="form" id="" method="POST" modelAttribute="user">
 									
 									<div class="form-group">
 										<label for="email">First Name</label> 
 										<sf:input type="text" class="form-control form-control-lg rounded-0" path="firstName"
-											id="firstName"/>
+											id="firstName" name="firstName"/>
 										
 										<!-- <sf:errors path="firstName" cssClass="help-block" element="em"/> -->
 									</div>
@@ -67,7 +67,7 @@
 										Continue <span class="fa fa-arrow-right"></span>
 									</button>
 									
-									<!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
+									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								</sf:form>
 							</div>
 							<!--/card-block-->

@@ -44,7 +44,7 @@
 								<h4><span class="fa fa-edit"></span> PROFILE DETAILS</h4>
 							</div>
 							<div class="card-body">
-								<form id="formRegister" action="${contextRoot}/business/updateProfile" method="GET">
+								<form id="formRegister" action="${contextRoot}/manage/updateProfile" method="GET">
 									<table class="table">
 										<tr>
 											<th>First Name:</th>

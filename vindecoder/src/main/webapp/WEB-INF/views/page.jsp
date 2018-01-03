@@ -13,7 +13,10 @@
 <html lang="en">
 
   <head>
-
+	<!-- CSRF -->
+    <meta name="_csrf" content="${_csrf.token}">
+    <meta name="_csrf_header" content="${_csrf.headerName}">
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -23,6 +26,9 @@
 	
 	<script>
 		window.menu = '${title}';
+		window.contextRoot = '${contextRoot}';
+		window.userId = '${userModel.id}';
+		window.userRole = '${userModel.role}';
 	</script>
 	
 	<!-- Stylesheets -->
@@ -71,6 +77,27 @@
     	<%@ include file="vindecode.jsp" %>
     </c:if>
     
+    <!-- Load vin logs in content file -->
+    <c:if test="${userClickGetVinLogs == true}">
+    	<%@ include file="vinLogs.jsp" %>
+    </c:if>
+    
+    
+    <!-- Admin Pages -->
+    <c:if test="${userClickAdminProfile == true}">
+    	<%@ include file="adminProfile.jsp" %>
+    </c:if>
+    
+    <c:if test="${userClickAdminEditProfile == true}">
+    	<%@ include file="adminEditProfile.jsp" %>
+    </c:if>
+    
+    <c:if test="${userClickAdminUsersList == true}">
+    	<%@ include file="showAdminUsersList.jsp" %>
+    </c:if>
+    
+    
+    <!-- Exception Page Handling -->
     <!-- Load error file -->
     <c:if test="${userClickException == true}">
     	<%@ include file="error.jsp" %>

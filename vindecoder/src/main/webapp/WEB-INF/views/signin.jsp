@@ -12,6 +12,14 @@
 						</div>
 					</c:if>
 					
+					<!-- Display error message when user logout -->
+					<c:if test="${not empty logoutMsg}">
+						<div class="alert alert-danger alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<strong>${logoutMsg}</strong>
+						</div>
+					</c:if>
+					
 					<!-- form card login -->
 					<div class="card rounded-2">
 						<div class="card-header">
@@ -34,7 +42,8 @@
 								</div>
 								<div>
 									<label class="custom-control custom-checkbox"> 
-										<input type="checkbox" class="custom-control-input"> 
+										<input type="checkbox" class="custom-control-input" id="remember" 
+										name="remember-me" value="true"/> 
 										<span class="custom-control-indicator"></span> 
 										<span class="custom-control-description small">Remember me on this computer</span>
 									</label>

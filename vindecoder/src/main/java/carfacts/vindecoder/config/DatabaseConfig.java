@@ -26,11 +26,18 @@ public class DatabaseConfig {
 	private static final String DATABASE_PASSWORD = "";*/
 	
 	// MySQL Connection String
-	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/vindecoder";
+	/*private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/vindecoder";
 	private static final String DATABASE_DRIVER = "com.mysql.cj.jdbc.Driver"; //"com.mysql.jdbc.Driver";
 	private static final String DATABASE_DIALECT = "org.hibernate.dialect.MySQLDialect";
 	private static final String DATABASE_USERNAME = "root";
-	private static final String DATABASE_PASSWORD = "ytech-1234";
+	private static final String DATABASE_PASSWORD = "ytech-1234";*/
+	
+	// Microsoft SQL Connection String (DESKTOP-L4BVT38\CarFacts)
+	private static final String DATABASE_URL = "jdbc:sqlserver://localhost;databaseName=CARFACTS";
+	private static final String DATABASE_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	private static final String DATABASE_DIALECT = "org.hibernate.dialect.SQLServer2012Dialect";
+	private static final String DATABASE_USERNAME = "sa";
+	private static final String DATABASE_PASSWORD = "Ytech@12345#";
 	
 	// dataSource bean will be available
 	// dataSource will be used inside spring-security.xml file

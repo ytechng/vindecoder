@@ -1,5 +1,5 @@
 -----------	Create Users Table ------------
-CREATE TABLE users (
+CREATE TABLE vd_users (
 	id INT(11) AUTO_INCREMENT,
 	first_name VARCHAR(50),
 	last_name VARCHAR(50),
@@ -10,19 +10,32 @@ CREATE TABLE users (
 	role VARCHAR(100),
 	password VARCHAR(60),
 	reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	last_login TIMESTAMP,
+	credit INT DEFAULT(1),
 	enabled BOOLEAN,
+	reset_token CHAR(36),
 	
-	CONSTRAINT pk_user_id PRIMARY KEY (id)
+	CONSTRAINT pk_vduser_id PRIMARY KEY (id)
 );
 
 -----------	Insert Into Users Table ------------
 
-INSERT INTO users (first_name, last_name, email, phone_no, company_name, company_address, role, password, enabled) 
+INSERT INTO vd_users (first_name, last_name, email, phone_no, company_name, company_address, role, password, enabled) 
 VALUES ('test', 'user', 'user@gmail.com', '08020908829', 'Whytech Automobile Company', '9 Alarape Street, Langbasa Ajga', 'business', 'test1234', true);
+
+----------- Create Remember-Me Table -------------
+
+CREATE TABLE persistent_logins (
+    username varchar(64) not null,
+    series varchar(64) not null,
+    token varchar(64) not null,
+    last_used timestamp not null,
+    PRIMARY KEY (series)
+);
 
 
 -----------	Create VinDecoders Table ------------
-CREATE TABLE vin_decoder (
+CREATE TABLE vd_decoder (
 	id INT(11) AUTO_INCREMENT,
 	vin VARCHAR(20),
 	make VARCHAR(50),
@@ -43,16 +56,28 @@ CREATE TABLE vin_decoder (
 	created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	status BOOLEAN,
 	
-	CONSTRAINT pk_vindecoder_id PRIMARY KEY (id)
+	CONSTRAINT pk_vddecoder_id PRIMARY KEY (id)
 );
 
 
 -----------	Create VIN Logs Table ------------
-CREATE TABLE vin_logs (
+CREATE TABLE vd_vin_logs (
 	id INT(11) AUTO_INCREMENT,
-	user_id INT,
-	vin_id INT,
+	user_id INT NOT NULL,
+	vin_id VARCHAR(17) NOT NULL,
 	log_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	
-	CONSTRAINT pk_vinlog_id PRIMARY KEY (id)
-)
+	CONSTRAINT pk_vdvinlog_id PRIMARY KEY (id)
+);
+
+
+----------- Create Credit Table ---------------
+CREATE TABLE vd_tanx_logs (
+	id INT(11) AUTO_INCREMENT,
+	user_id INT NOT NULL,
+	created_by INT NOT NULL,
+	quantity INT NOT NULL,
+	credit_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	
+	CONSTRAINT pk_vdtranxlog_id PRIMARY KEY (id)
+);

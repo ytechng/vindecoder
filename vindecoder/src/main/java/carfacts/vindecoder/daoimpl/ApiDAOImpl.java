@@ -5,14 +5,13 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import carfacts.vindecoder.dao.ApiDAO;
 import carfacts.vindecoder.dto.Api;
-import carfacts.vindecoder.dto.Decoder;
 
-@Service("apiDAO")
+@Repository("apiDAO")
 @Transactional
 public class ApiDAOImpl implements ApiDAO {
 	

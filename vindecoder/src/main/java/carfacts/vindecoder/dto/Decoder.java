@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "vin_decoded")
+@Table(name = "vd_decoded")
 @XmlAccessorType(XmlAccessType.NONE)
 public class Decoder implements Serializable{
 

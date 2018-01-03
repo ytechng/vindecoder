@@ -1,21 +1,23 @@
 package carfacts.vindecoder.dto;
 
 import java.io.Serializable;
-
+import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.print.attribute.standard.DateTimeAtCreation;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+//import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
-@Table(name = "users")
-public class User implements Serializable { 
-	// To store anything inside flow scope from webflow - implement Seriliazable interface
+@Table(name = "vd_users")
+public class User implements Serializable {
+	// To store anything inside flow scope from webflow - implement Seriliazable
+	// interface
 
 	/**
 	 * 
@@ -28,40 +30,48 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name = "first_name")
+
+	@Column(name = "first_name", nullable = false, length = 30)
 	@NotBlank(message = "Please enter first name!")
 	private String firstName;
-	
-	@Column(name = "last_name")
-	@NotBlank(message = "Please enter last name!")
+
+	@Column(name = "last_name", nullable = false, length = 30)
+	@NotBlank(message = "Please enter your last name!")
 	private String lastName;
-	
-	@NotBlank(message = "Please enter email address!")
+
+	@Column(name = "email", nullable = false, unique = true, length = 100)
+	@NotBlank(message = "Please enter your email address!")
 	@Email(message = "Please enter a valid email address!")
 	private String email;
-	
-	@Column(name = "phone_no")
-	@NotBlank(message = "Please enter contact number!")
+
+	@Column(name = "phone_no", nullable = false, length = 11)
+	@NotBlank(message = "Please enter your contact number!")
 	private String phoneNo;
-	
-	@Column(name = "company_name")
-	@NotBlank(message = "Please enter company name!")
+
+	@Column(name = "company_name", length = 100)
+	@NotBlank(message = "Please enter your company name!")
 	private String companyName;
-	
-	@Column(name = "company_address")
-	@NotBlank(message = "Please enter company address!")
+
+	@Column(name = "company_address", length = 100)
+	@NotBlank(message = "Please enter your company address!")
 	private String companyAddress;
-	
+
+	@Column(length = 10)
 	private String role = "business";
-	
-	@NotBlank(message = "Please enter password!")
+
+	@Column(nullable = false, length = 60)
+	@NotBlank(message = "Please enter your password!")
 	private String password;
+
+	@Column(name = "enabled")
+	private boolean active = true;
 	
-	@Column(name = "reg_date")
-	private DateTimeAtCreation regDate;
+	//columnDefinition = "DATE DEFAULT CURRENT_DATE"
+	@Column(name = "reg_date", nullable = true)
+	private Date regDate;
 	
-	private boolean enabled = true;
+	@Column(nullable = true)
+	private int credit = 0;
 
 	public int getId() {
 		return id;
@@ -135,27 +145,36 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public DateTimeAtCreation getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(DateTimeAtCreation regDate) {
+	public void setRegDate(Date regDate) {		
 		this.regDate = regDate;
 	}
-
-	public boolean isEnabled() {
-		return enabled;
+	
+	public int getCredit() {
+		return credit;
+	}
+	
+	public void setCredit(int qty) {
+		this.credit = qty;
 	}
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", phoneNo=" + phoneNo + ", companyName=" + companyName + ", companyAddress=" + companyAddress
-				+ ", role=" + role + ", password=" + password + ", regDate=" + regDate + ", enabled=" + enabled + "]";
+				+ ", role=" + role + ", password=" + password + ", active=" + active + ", regDate=" + regDate
+				+ ", credit=" + credit + "]";
 	}
 
 }
