@@ -81,10 +81,10 @@ public class DatabaseConfig {
 		properties.put("hibernate.format_sql", "true");
 		
 		// create table for my database if not exist
-		//properties.put("hibernate.hbm2ddl.auto", "create");
+		properties.put("hibernate.hbm2ddl.auto", "create");
 		
 		// update database table if exist
-		properties.put("hibernate.hbm2ddl.auto", "update");
+		//properties.put("hibernate.hbm2ddl.auto", "update");
 		
 		return properties;
 	}
