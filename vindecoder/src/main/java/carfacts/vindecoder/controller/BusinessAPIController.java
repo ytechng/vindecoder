@@ -15,6 +15,13 @@ public class BusinessAPIController {
 	
 	@RequestMapping(value="/getEUTeaserJson/{email}/{vin}", method=RequestMethod.GET, produces="application/json")
 	public @ResponseBody Object getEUTeaserJson(@PathVariable("email") String email, @PathVariable("vin") String vin) {
+		
+		// 1. validate email
+		// 2. validate ipaddress
+		// 3. validate vin
+		
+		// if no error/s then call the real carfax api
+		
 
 		EUTeaserDetails teaser = new EUTeaserDetails();
 

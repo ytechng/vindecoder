@@ -1,19 +1,27 @@
 package carfacts.vindecoder.controller;
 
+import java.net.InetAddress;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import carfacts.vindecoder.dao.APIErrorDAO;
 import carfacts.vindecoder.dto.EUTeaserDetails;
 import carfacts.vindecoder.dto.USTeaserDetails;
 
 @RestController
 @RequestMapping("/mock")
 public class MockApiController {
+	
+	@Autowired
+	private APIErrorDAO apiErrorDAO;
 
 	//getEUTeaserJson?{UID}.eu_vhrteaser_json&{vinreg}
 	@RequestMapping(value="/getEUTeaserJson/{UID}/{vinreg}", method=RequestMethod.GET, produces="application/json")
@@ -29,27 +37,23 @@ public class MockApiController {
 		teaser.setFeature2("Service records");
 		teaser.setFeature3("Full US History");
 		
-		String userID = "carfacts";
-		String vinDetail = "WAUED64B9YN120707";
+		String uid_ = "carfacts";
+		String vin_ = "WAUED64B9YN120707";
+		String ipAddr = "192.168.0.103";
+			
+		if (!uid.equalsIgnoreCase(uid_)) {
+			return apiErrorDAO.getErrorByCode("E03");
+		}		
 		
-		if (uid.equals("") || uid == null) {
-			return "Error 101: User ID is empty!";
+		else if (!vinReg.equalsIgnoreCase(vin_)) {
+			return apiErrorDAO.getErrorByCode("E01");
+		} 
+		
+		else if (uid_.equalsIgnoreCase(uid) && vin_.equalsIgnoreCase(vinReg)) {
+			return teaser;
 		}
 		
-		else if (vinReg.equals("") || vinReg == null) {
-			return "Error 102: VinReg is empty!";
-		}
-		
-		else if (!uid.toUpperCase().equals(userID.toUpperCase())) {
-			return "Error 103: User ID not found!";
-		}
-		
-		else if(!vinReg.equalsIgnoreCase(vinDetail)) {
-			return "Error 104: Invalid VIN!";
-		}
-		
-		return teaser;
-		
+		return "Unknown error! Please contact an Administrators";
 	}
 	
 	
@@ -68,5 +72,39 @@ public class MockApiController {
 		usTeaser.setManufacturedIn("");
 		
 		return usTeaser;
+	}
+	
+	@RequestMapping(value="/getServerIP", method=RequestMethod.GET, produces="application/json")
+	public @ResponseBody Object getServerIp() {
+		
+		InetAddress ip;
+		String hostName;
+		
+		try {
+			ip = InetAddress.getLocalHost();
+			hostName = ip.getHostAddress();
+			
+			return hostName;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@RequestMapping(value="/getIp", method=RequestMethod.GET, produces="application/json")
+	public @ResponseBody Object getIp(HttpServletRequest request) {
+		
+		String remoteAddress = "";
+		
+		if (request != null) {
+			remoteAddress = request.getHeader("X-FORWARDED-FOR");
+			
+			if (remoteAddress == null || remoteAddress.equals("")) {
+				remoteAddress = request.getRemoteAddr();
+			}
+		}
+		
+		return remoteAddress;
 	}
 }
