@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import carfacts.vindecoder.dao.APIErrorDAO;
 import carfacts.vindecoder.dto.EUTeaserDetails;
@@ -40,6 +41,8 @@ public class MockApiController {
 		String uid_ = "carfacts";
 		String vin_ = "WAUED64B9YN120707";
 		String ipAddr = "192.168.0.103";
+		
+		// get user ip from api
 			
 		if (!uid.equalsIgnoreCase(uid_)) {
 			return apiErrorDAO.getErrorByCode("E03");

@@ -28,7 +28,7 @@ public class ApiTestCase {
 		apiDAO = (ApiDAO) context.getBean("apiDAO");
 	}
 	
-	/*@Test
+	@Test
 	public void testAddapiAPI() {
 		
 		api = new Api();	
@@ -71,10 +71,10 @@ public class ApiTestCase {
 		
 		assertEquals("Error adding new vin ", true, apiDAO.add(api));
 		
-	}*/
+	}
 	
 	
-	@Test
+	/*@Test
 	public void testUpdateVin() {
 		
 		api = apiDAO.get("WQ1ABB2DSALA801FG");
@@ -86,6 +86,6 @@ public class ApiTestCase {
 		// update record
 		assertEquals("Failed to update vin!", true, apiDAO.update(api));
 		
-	}
+	}*/
 	
 }
