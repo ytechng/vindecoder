@@ -1,17 +1,24 @@
 package carfacts.vindecoder.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.InetAddress;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
 
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
+import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import carfacts.vindecoder.dao.APIErrorDAO;
 import carfacts.vindecoder.dto.EUTeaserDetails;
@@ -109,5 +116,45 @@ public class MockApiController {
 		}
 		
 		return remoteAddress;
+	}
+	
+	@SuppressWarnings("deprecation")
+	@RequestMapping(value="readExcel", method=RequestMethod.GET, produces="application/json")
+	public @ResponseBody Object readExcel() {
+		
+		String record = "";
+		
+		try {
+			FileInputStream file = new FileInputStream(new File("C:/java-projects/vindecoder/vindecoder/Report.xls"));
+			
+			// create workbook instance that refers to .xls
+			HSSFWorkbook book = new HSSFWorkbook();
+			
+			//create a sheet object to retrieve the sheet
+			HSSFSheet sheet = book.getSheetAt(0);
+			
+			// that is evaluate the cell type
+			FormulaEvaluator evaluator = book.getCreationHelper().createFormulaEvaluator();
+			
+			for (Row row : sheet) {
+				
+				for (Cell cell : row) {
+					switch (evaluator.evaluate(cell).getCellType()) {
+					case Cell.CELL_TYPE_NUMERIC:
+						record += cell.getNumericCellValue() + "\t\t";
+					case Cell.CELL_TYPE_STRING:
+						record += cell.getStringCellValue() + "\t\t";
+					}
+				}
+				
+			}
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return record;
+		
 	}
 }

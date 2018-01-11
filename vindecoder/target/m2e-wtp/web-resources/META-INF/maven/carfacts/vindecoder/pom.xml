@@ -84,13 +84,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>6.0.6</version>
 		</dependency>
-		
+
 		<!-- Microsoft SQL Connector -->
 		<dependency>
-		    <groupId>com.microsoft.sqlserver</groupId>
-		    <artifactId>mssql-jdbc</artifactId>
-		    <version>6.1.0.jre8</version>
-		</dependency>				
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>6.1.0.jre8</version>
+		</dependency>
 
 		<!-- MYSQL OR H2 -->
 
@@ -168,6 +168,13 @@
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
 			<version>1.11.9.RELEASE</version>
+		</dependency>
+
+	<!-- Apache POI for Excel -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.15</version>
 		</dependency>
 
 	</dependencies>
