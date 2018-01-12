@@ -127,8 +127,7 @@
 					</c:if>
 					
 					<c:if test="${vinResult == null}">
-						<div style="padding-bottom: 40%;">
-						</div>
+						<div style="padding-bottom: 40%;"></div>
 					</c:if>
 					
 					<div class="col-md-3 mx-auto">

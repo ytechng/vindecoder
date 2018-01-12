@@ -30,6 +30,10 @@
 		<a href="${contextRoot}/home" class="list-group-item" id="showBusinessUsers">
 			<span class="fa fa-users"></span>  Business Users
 		</a> 
+		
+		<a href="${contextRoot}/manage/uploadExcelFile" class="list-group-item" id="showUploadExcelFile">
+			<span class="fa fa-book"></span>  Upload Excel File
+		</a> 
 
 	</security:authorize>
 	

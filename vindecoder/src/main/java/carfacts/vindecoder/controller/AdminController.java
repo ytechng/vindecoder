@@ -1,5 +1,10 @@
 package carfacts.vindecoder.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -8,11 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import carfacts.vindecoder.dao.UserDAO;
@@ -24,6 +31,8 @@ import carfacts.vindecoder.dto.User;
 public class AdminController {
 	
 	private static Logger logger = LoggerFactory.getLogger(PageController.class);
+	
+	private String fileLocation;
 	
 	@Autowired
 	private UserDAO userDAO;
@@ -152,6 +161,43 @@ public class AdminController {
 		userDAO.addTranactionLog(tranx);
 		
 		return "redirect:/home?operation=" + email;
+	}
+	
+	@RequestMapping(value = "/uploadExcelFile", method = RequestMethod.GET)
+	public ModelAndView showUploadExcelFile() {
+
+		logger.debug("Inseide AdminController showUploadEcelFile method - DEBUG");
+
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("userClickUploadExcel", true);
+		mv.addObject("title", "Upload Excel File");
+
+		return mv;
+	}
+	
+	@PostMapping(value="/uploadFile")
+	public String uploadFile(Model model, MultipartFile file) throws IOException {
+		
+		InputStream in = file.getInputStream();
+		
+		File currDir = new File(".");
+		String path = currDir.getAbsolutePath();
+		fileLocation = path.substring(0, path.length() - 1) + file.getOriginalFilename();
+		FileOutputStream out = new FileOutputStream(fileLocation);
+		
+		int ch = 0;
+		
+		while ((ch = in.read()) != -1) {
+			out.write(ch);
+		}
+		
+		out.flush();
+		out.close();
+		
+		model.addAttribute("message", "File: " + file.getOriginalFilename() + " has been uploaded successfully!");
+		
+		return "excel";
+		
 	}
 
 }

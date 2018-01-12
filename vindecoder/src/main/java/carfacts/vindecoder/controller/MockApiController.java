@@ -118,42 +118,12 @@ public class MockApiController {
 		return remoteAddress;
 	}
 	
-	@SuppressWarnings("deprecation")
 	@RequestMapping(value="readExcel", method=RequestMethod.GET, produces="application/json")
 	public @ResponseBody Object readExcel() {
 		
 		String record = "";
 		
-		try {
-			FileInputStream file = new FileInputStream(new File("C:/java-projects/vindecoder/vindecoder/Report.xls"));
-			
-			// create workbook instance that refers to .xls
-			HSSFWorkbook book = new HSSFWorkbook();
-			
-			//create a sheet object to retrieve the sheet
-			HSSFSheet sheet = book.getSheetAt(0);
-			
-			// that is evaluate the cell type
-			FormulaEvaluator evaluator = book.getCreationHelper().createFormulaEvaluator();
-			
-			for (Row row : sheet) {
-				
-				for (Cell cell : row) {
-					switch (evaluator.evaluate(cell).getCellType()) {
-					case Cell.CELL_TYPE_NUMERIC:
-						record += cell.getNumericCellValue() + "\t\t";
-					case Cell.CELL_TYPE_STRING:
-						record += cell.getStringCellValue() + "\t\t";
-					}
-				}
-				
-			}
-			
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		return record;
 		
 	}

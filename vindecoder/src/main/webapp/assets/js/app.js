@@ -29,6 +29,9 @@ $(function() {
 	case 'Business Users':
 		$('#showBusinessUsers').addClass('active');
 		break;
+	case 'Upload Excel File':
+		$('#showUploadExcelFile').addClass('active');
+		break;
 		
 }
 	

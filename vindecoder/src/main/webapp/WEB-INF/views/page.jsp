@@ -81,7 +81,7 @@
     <c:if test="${userClickGetVinLogs == true}">
     	<%@ include file="vinLogs.jsp" %>
     </c:if>
-    
+      
     
     <!-- Admin Pages -->
     <c:if test="${userClickAdminProfile == true}">
@@ -94,6 +94,10 @@
     
     <c:if test="${userClickAdminUsersList == true}">
     	<%@ include file="showAdminUsersList.jsp" %>
+    </c:if>
+    
+    <c:if test="${userClickUploadExcel == true}">
+    	<%@ include file="uploadExcel.jsp" %>
     </c:if>
     
     
