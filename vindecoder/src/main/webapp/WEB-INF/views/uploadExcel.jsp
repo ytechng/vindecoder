@@ -9,7 +9,7 @@
 		<!-- /.col-lg-3 -->
 		<div class="col-lg-9">
 			<div class="content">
-			<br>
+				<br>
 				<!-- breadcrumb component -->
 				<div class="row">
 					<div class="col-md-12">
@@ -28,8 +28,7 @@
 					<!-- Result Panel -->
 					<div class="col-md-12">
 						<div class="card">
-							<c:url value="uploadFile" var="uploadFileUrl" />
-							<form method="post" action="${$uploadFileUrl}" enctype="multipart/form-data">
+							<form method="POST" action="${contextRoot}/manage/uploadExcelFile" enctype="multipart/form-data">
 								<div class="card-header primary lighten-1 white-text">
 									<h4><span class="fa fa-book"></span> Upload Excel File</h4>
 								</div>
@@ -38,10 +37,14 @@
 									<div class="col-md-6 mx-auto">
 										<input type="file" name="file" accept=".xls,.xlsx" class="form-control" />
 									</div><br>
+									
+									<!-- hidden fields -->
+									<input type="hidden" name="id" value="${userModel.id}"/>
+									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		
 									<div class="col-md-4 mx-auto">
 										<button type="submit" class="form-control btn btn-primary">
-											<span class="fa fa-book"></span> Check Report Status
+											<span class="fa fa-book"></span> Upload the file
 										</button>
 									</div>
 								</div>
@@ -51,8 +54,9 @@
 				</div>
 				<!--/.Result Panel-->
 				</div>
+				
 				<div style="padding-bottom: 20%;">
-						</div>
+				</div>
 
 		</div>
 		<!-- /.col-lg-9 -->

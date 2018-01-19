@@ -122,14 +122,14 @@ public class BusinessController {
 		if (userDAO.get(id).getCredit() > 0) {
 
 			RestTemplate restTemplate = new RestTemplate();
-			String url = "http://localhost:8080/vindecoder/carfacts/api/localApi/";
+			String url = "http://localhost:8080/vindecoder/carfacts/api/localApi/" + vin;
 	
-			Decoder decoderApi = restTemplate.getForObject(url, Decoder.class, vin);
+			Decoder decoderApi = restTemplate.getForObject(url, Decoder.class);
 	
 			if (decoderApi == null) {
 	
-				url = "http://localhost:8080/vindecoder/carfacts/api/carfaxApi/";
-				decoderApi = restTemplate.getForObject(url, Decoder.class, vin);
+				url = "http://localhost:8080/vindecoder/carfacts/api/carfaxApi/" + vin;
+				decoderApi = restTemplate.getForObject(url, Decoder.class);
 	
 				if (decoderApi != null) {
 					Decoder decoder = new Decoder();

@@ -6,16 +6,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import carfacts.vindecoder.dao.ApiDAO;
-import carfacts.vindecoder.dto.Api;
+import carfacts.vindecoder.dao.DecoderDAO;
+import carfacts.vindecoder.dto.Decoder;
 
 public class DecoderApiTestCase {
 
 	private static AnnotationConfigApplicationContext context;
 	
-	private static ApiDAO apiDAO;
+	private static DecoderDAO decoderDAO;
 	
-	private static Api api;
+	private static Decoder decoder;
 	
 	
 	@BeforeClass
@@ -25,51 +25,51 @@ public class DecoderApiTestCase {
 		context.scan("carfacts.vindecoder");
 		context.refresh();
 		
-		apiDAO = (ApiDAO) context.getBean("apiDAO");
+		decoderDAO = (DecoderDAO) context.getBean("decoderDAO");
 	}
 	
 	@Test
-	public void testAddapiAPI() {
+	public void testAdddecoderdecoder() {
 		
-		api = new Api();	
-		api.setVin("WP1ABC9PZ3LA80199");
-		api.setMake("Honda");
-		api.setModelName("Corolla");
-		api.setModelYear("2007");
-		api.setFuelType("Petrol");
-		api.setBodyType("SUV");
-		api.setDriveWheels("All wheel");
-		api.setEnginePower("123");
-		api.setHorsePower("456");
-		api.setCurbWeight("2567");
-		api.setGrossVehicleWeight("2010");
-		api.setPlant("Leipzig, Germany");
-		api.setGearBox("Automatic");
-		api.setMaxPayload("234");
-		api.setCo2EmissionMixedDriving("N/A");
-		api.setFuelConsumptionMixedDriving("N/A");
+		decoder = new Decoder();	
+		decoder.setVin("WP1ABC9PZ3LA80199");
+		decoder.setMake("Honda");
+		decoder.setModelName("Corolla");
+		decoder.setModelYear("2007");
+		decoder.setFuelType("Petrol");
+		decoder.setBodyType("SUV");
+		decoder.setDriveWheels("All wheel");
+		decoder.setEnginePower("123");
+		decoder.setHorsePower("456");
+		decoder.setCurbWeight("2567");
+		decoder.setGrossVehicleWeight("2010");
+		decoder.setPlant("Leipzig, Germany");
+		decoder.setGearBox("Automatic");
+		decoder.setMaxPayload("234");
+		decoder.setCo2EmissionMixedDriving("N/A");
+		decoder.setFuelConsumptionMixedDriving("N/A");
 		
-		assertEquals("Error adding new vin apid", true, apiDAO.add(api));
+		assertEquals("Error adding new vin decoderd", true, decoderDAO.add(decoder));
 		
-		api = new Api();	
-		api.setVin("WQ1ABB2DSALA80123");
-		api.setMake("Toyata");
-		api.setModelName("Venza");
-		api.setModelYear("2002");
-		api.setFuelType("Petrol");
-		api.setBodyType("SUV");
-		api.setDriveWheels("All wheel");
-		api.setEnginePower("670");
-		api.setHorsePower("145");
-		api.setCurbWeight("3219");
-		api.setGrossVehicleWeight("2345");
-		api.setPlant("Leipzig, Canada");
-		api.setGearBox("Automatic");
-		api.setMaxPayload("267");
-		api.setCo2EmissionMixedDriving("N/A");
-		api.setFuelConsumptionMixedDriving("N/A");
+		decoder = new Decoder();	
+		decoder.setVin("WQ1ABB2DSALA80123");
+		decoder.setMake("Toyata");
+		decoder.setModelName("Venza");
+		decoder.setModelYear("2002");
+		decoder.setFuelType("Petrol");
+		decoder.setBodyType("SUV");
+		decoder.setDriveWheels("All wheel");
+		decoder.setEnginePower("670");
+		decoder.setHorsePower("145");
+		decoder.setCurbWeight("3219");
+		decoder.setGrossVehicleWeight("2345");
+		decoder.setPlant("Leipzig, Canada");
+		decoder.setGearBox("Automatic");
+		decoder.setMaxPayload("267");
+		decoder.setCo2EmissionMixedDriving("N/A");
+		decoder.setFuelConsumptionMixedDriving("N/A");
 		
-		assertEquals("Error adding new vin ", true, apiDAO.add(api));
+		assertEquals("Error adding new vin ", true, decoderDAO.add(decoder));
 		
 	}
 	

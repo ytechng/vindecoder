@@ -100,6 +100,10 @@
     	<%@ include file="uploadExcel.jsp" %>
     </c:if>
     
+    <c:if test="${userClickUploadFile == true}">
+    	<%@ include file="uploadFile.jsp" %>
+    </c:if>
+    
     
     <!-- Exception Page Handling -->
     <!-- Load error file -->

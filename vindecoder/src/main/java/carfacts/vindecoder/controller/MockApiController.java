@@ -1,18 +1,12 @@
 package carfacts.vindecoder.controller;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.InetAddress;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
 
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
-import org.apache.poi.ss.usermodel.Row;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,9 +22,12 @@ import carfacts.vindecoder.dto.USTeaserDetails;
 @RequestMapping("/mock")
 public class MockApiController {
 	
+	private static Logger logger = LoggerFactory.getLogger(MockApiController.class);
+	
 	@Autowired
 	private APIErrorDAO apiErrorDAO;
 
+	/** EU Teaser Mock API */
 	//getEUTeaserJson?{UID}.eu_vhrteaser_json&{vinreg}
 	@RequestMapping(value="/getEUTeaserJson/{UID}/{vinreg}", method=RequestMethod.GET, produces="application/json")
 	public @ResponseBody Object getEUTeaserJson(@PathVariable("UID") @NotNull String uid, 
@@ -66,7 +63,7 @@ public class MockApiController {
 		return "Unknown error! Please contact an Administrators";
 	}
 	
-	
+	/** US Teaser Mock API */
 	@RequestMapping(value="/getUSTeaserJson", method=RequestMethod.GET, produces="application/json")
 	public @ResponseBody Object getUSTeaserJson() {
 		
@@ -84,8 +81,9 @@ public class MockApiController {
 		return usTeaser;
 	}
 	
+	/** Get Server IP */
 	@RequestMapping(value="/getServerIP", method=RequestMethod.GET, produces="application/json")
-	public @ResponseBody Object getServerIp() {
+	public @ResponseBody String getServerIp() {
 		
 		InetAddress ip;
 		String hostName;
@@ -102,8 +100,9 @@ public class MockApiController {
 		}
 	}
 	
+	/** Get Client IP */
 	@RequestMapping(value="/getIp", method=RequestMethod.GET, produces="application/json")
-	public @ResponseBody Object getIp(HttpServletRequest request) {
+	public @ResponseBody String getIp(HttpServletRequest request) {
 		
 		String remoteAddress = "";
 		
@@ -118,13 +117,4 @@ public class MockApiController {
 		return remoteAddress;
 	}
 	
-	@RequestMapping(value="readExcel", method=RequestMethod.GET, produces="application/json")
-	public @ResponseBody Object readExcel() {
-		
-		String record = "";
-		
-		
-		return record;
-		
-	}
 }

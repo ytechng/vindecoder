@@ -24,6 +24,7 @@
 
 		<!-- only registered user access -->
 		<intercept-url pattern="/business/**" access="hasAuthority('business')" />
+		<intercept-url pattern="/mock/**" access="hasAuthority('business')" />
 		
 		<!-- authenticated users access -->
 		<intercept-url pattern="/home" access="isAuthenticated()" />
@@ -37,6 +38,7 @@
 		<csrf disabled="false" /> <!-- csrf is set to false by default -->
 		
 		<remember-me data-source-ref="dataSource" token-validity-seconds="86400" />
+
 	</http>
 
 	<!-- Authentication Manager -->

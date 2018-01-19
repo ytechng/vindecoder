@@ -32,44 +32,24 @@ public class ApiTestCase {
 	public void testAddapiAPI() {
 		
 		api = new Api();	
-		api.setVin("WP1ABC9PZ3LA80199");
-		api.setMake("Honda");
-		api.setModelName("Corolla");
-		api.setModelYear("2007");
+		api.setVin("WP1ZZZ9PZ3LA80863");
+		api.setMake("Porch");
+		api.setModelName("Cayenne");
+		api.setModelYear("2003");
 		api.setFuelType("Petrol");
 		api.setBodyType("SUV");
 		api.setDriveWheels("All wheel");
-		api.setEnginePower("123");
-		api.setHorsePower("456");
-		api.setCurbWeight("2567");
-		api.setGrossVehicleWeight("2010");
+		api.setEnginePower("331");
+		api.setHorsePower("450");
+		api.setCurbWeight("2430");
+		api.setGrossVehicleWeight("3080");
 		api.setPlant("Leipzig, Germany");
 		api.setGearBox("Automatic");
-		api.setMaxPayload("234");
-		api.setCo2EmissionMixedDriving("N/A");
-		api.setFuelConsumptionMixedDriving("N/A");
+		api.setMaxPayload("650");
+		api.setCo2EmissionMixedDriving("CO2 emissions in mixed driving");
+		api.setFuelConsumptionMixedDriving("Fuel consumption in mixed driving");
 		
 		assertEquals("Error adding new vin apid", true, apiDAO.add(api));
-		
-		api = new Api();	
-		api.setVin("WQ1ABB2DSALA80123");
-		api.setMake("Toyata");
-		api.setModelName("Venza");
-		api.setModelYear("2002");
-		api.setFuelType("Petrol");
-		api.setBodyType("SUV");
-		api.setDriveWheels("All wheel");
-		api.setEnginePower("670");
-		api.setHorsePower("145");
-		api.setCurbWeight("3219");
-		api.setGrossVehicleWeight("2345");
-		api.setPlant("Leipzig, Canada");
-		api.setGearBox("Automatic");
-		api.setMaxPayload("267");
-		api.setCo2EmissionMixedDriving("N/A");
-		api.setFuelConsumptionMixedDriving("N/A");
-		
-		assertEquals("Error adding new vin ", true, apiDAO.add(api));
 		
 	}
 	
